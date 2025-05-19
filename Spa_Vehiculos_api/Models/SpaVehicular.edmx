@@ -1,0 +1,1814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SpaVehicularModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="id_cargo" />
+          </Key>
+          <Property Name="id_cargo" Type="int" Nullable="false" />
+          <Property Name="nombre_cargo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CATEGORIA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_categoria_producto" />
+          </Key>
+          <Property Name="id_categoria_producto" Type="int" Nullable="false" />
+          <Property Name="nombre_categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CATEGORIA_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_categoria_servicio" />
+          </Key>
+          <Property Name="id_categoria_servicio" Type="int" Nullable="false" />
+          <Property Name="nombre_categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CITA">
+          <Key>
+            <PropertyRef Name="id_cita" />
+          </Key>
+          <Property Name="id_cita" Type="int" Nullable="false" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="id_vehiculo" Type="int" />
+          <Property Name="id_sede" Type="int" />
+          <Property Name="fecha_hora" Type="datetime" Nullable="false" />
+          <Property Name="estado_cita" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="notas" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="id_ciudad" />
+          </Key>
+          <Property Name="id_ciudad" Type="int" Nullable="false" />
+          <Property Name="nombre_ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Departamento" Type="varchar" MaxLength="50" />
+          <Property Name="pais" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_documento" Type="varchar" MaxLength="20" />
+          <Property Name="documento_identidad" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="estado_cliente" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DETALLE_FACTURA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_detalle_producto" />
+          </Key>
+          <Property Name="id_detalle_producto" Type="int" Nullable="false" />
+          <Property Name="id_factura" Type="int" />
+          <Property Name="id_producto" Type="int" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precio_unitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_FACTURA_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_detalle_servicio" />
+          </Key>
+          <Property Name="id_detalle_servicio" Type="int" Nullable="false" />
+          <Property Name="id_factura" Type="int" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precio_unitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_ORDEN_COMPRA">
+          <Key>
+            <PropertyRef Name="id_detalle_orden" />
+          </Key>
+          <Property Name="id_detalle_orden" Type="int" Nullable="false" />
+          <Property Name="id_orden_compra" Type="int" />
+          <Property Name="id_producto" Type="int" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precio_unitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="int" Nullable="false" />
+          <Property Name="id_sede" Type="int" />
+          <Property Name="id_cargo" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="documento_identidad" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="date" />
+          <Property Name="fecha_contratacion" Type="date" />
+          <Property Name="salario" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="int" Nullable="false" />
+          <Property Name="id_cita" Type="int" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="id_sede" Type="int" />
+          <Property Name="id_empleado" Type="int" />
+          <Property Name="numero_factura" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha_emision" Type="date" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="descuento" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="metodo_pago" Type="varchar" MaxLength="30" />
+          <Property Name="estado_pago" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="INVENTARIO_SEDE">
+          <Key>
+            <PropertyRef Name="id_inventario" />
+          </Key>
+          <Property Name="id_inventario" Type="int" Nullable="false" />
+          <Property Name="id_producto" Type="int" />
+          <Property Name="id_sede" Type="int" />
+          <Property Name="cantidad_actual" Type="int" Nullable="false" />
+          <Property Name="punto_reorden" Type="int" />
+          <Property Name="ubicacion_almacen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ORDEN_COMPRA">
+          <Key>
+            <PropertyRef Name="id_orden_compra" />
+          </Key>
+          <Property Name="id_orden_compra" Type="int" Nullable="false" />
+          <Property Name="id_proveedor" Type="int" />
+          <Property Name="id_sede" Type="int" />
+          <Property Name="id_empleado" Type="int" />
+          <Property Name="numero_orden" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha_orden" Type="date" Nullable="false" />
+          <Property Name="fecha_entrega_esperada" Type="date" />
+          <Property Name="estado_orden" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRECIO_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_precio_servicio" />
+          </Key>
+          <Property Name="id_precio_servicio" Type="int" Nullable="false" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="id_sede" Type="int" />
+          <Property Name="precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="fecha_inicio_vigencia" Type="date" Nullable="false" />
+          <Property Name="fecha_fin_vigencia" Type="date" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="int" Nullable="false" />
+          <Property Name="id_categoria_producto" Type="int" />
+          <Property Name="nombre_producto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="unidad_medida" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="id_producto_proveedor" />
+          </Key>
+          <Property Name="id_producto_proveedor" Type="int" Nullable="false" />
+          <Property Name="id_producto" Type="int" />
+          <Property Name="id_proveedor" Type="int" />
+          <Property Name="precio_compra" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="tiempo_entrega" Type="int" />
+          <Property Name="cantidad_minima" Type="int" />
+          <Property Name="es_proveedor_principal" Type="bit" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="int" Nullable="false" />
+          <Property Name="nombre_empresa" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nif" Type="varchar" MaxLength="20" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="pais" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="persona_contacto" Type="varchar" MaxLength="100" />
+          <Property Name="estado_proveedor" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SEDE">
+          <Key>
+            <PropertyRef Name="id_sede" />
+          </Key>
+          <Property Name="id_sede" Type="int" Nullable="false" />
+          <Property Name="id_ciudad" Type="int" />
+          <Property Name="nombre_sede" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="hora_apertura" Type="time" Precision="7" />
+          <Property Name="hora_cierre" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="int" Nullable="false" />
+          <Property Name="id_categoria_servicio" Type="int" />
+          <Property Name="nombre_servicio" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="duracion_estimada" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VEHICULO_CLIENTE">
+          <Key>
+            <PropertyRef Name="id_vehiculo" />
+          </Key>
+          <Property Name="id_vehiculo" Type="int" Nullable="false" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="matricula" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="anio" Type="int" />
+          <Property Name="color" Type="varchar" MaxLength="30" />
+          <Property Name="tipo_vehiculo" Type="varchar" MaxLength="30" />
+          <Property Name="observaciones" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK__CITA__id_cliente__5DCAEF64">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CITA__id_sede__5FB337D6">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CITA__id_vehicul__5EBF139D">
+          <End Role="VEHICULO_CLIENTE" Type="Self.VEHICULO_CLIENTE" Multiplicity="0..1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULO_CLIENTE">
+              <PropertyRef Name="id_vehiculo" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="id_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_fa__68487DD7">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_SERVICIO" Type="Self.DETALLE_FACTURA_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_SERVICIO">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_fa__6C190EBB">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_PRODUCTO" Type="Self.DETALLE_FACTURA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_PRODUCTO">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_pr__6D0D32F4">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_PRODUCTO" Type="Self.DETALLE_FACTURA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_se__693CA210">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_SERVICIO" Type="Self.DETALLE_FACTURA_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_O__id_or__74AE54BC">
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="0..1" />
+          <End Role="DETALLE_ORDEN_COMPRA" Type="Self.DETALLE_ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_orden_compra" />
+            </Principal>
+            <Dependent Role="DETALLE_ORDEN_COMPRA">
+              <PropertyRef Name="id_orden_compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_O__id_pr__75A278F5">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_ORDEN_COMPRA" Type="Self.DETALLE_ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="DETALLE_ORDEN_COMPRA">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__id_car__3F466844">
+          <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="id_cargo" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="id_cargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__id_sed__3E52440B">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_cita__628FA481">
+          <End Role="CITA" Type="Self.CITA" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITA">
+              <PropertyRef Name="id_cita" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_cita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_clie__6383C8BA">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_empl__656C112C">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="id_empleado" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_sede__6477ECF3">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INVENTARI__id_pr__5535A963">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="INVENTARIO_SEDE" Type="Self.INVENTARIO_SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="INVENTARIO_SEDE">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INVENTARI__id_se__5629CD9C">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="INVENTARIO_SEDE" Type="Self.INVENTARIO_SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="INVENTARIO_SEDE">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDEN_COM__id_em__71D1E811">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="id_empleado" />
+            </Principal>
+            <Dependent Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDEN_COM__id_pr__6FE99F9F">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDEN_COM__id_se__70DDC3D8">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRECIO_SE__id_se__46E78A0C">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="0..1" />
+          <End Role="PRECIO_SERVICIO" Type="Self.PRECIO_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="PRECIO_SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRECIO_SE__id_se__47DBAE45">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="PRECIO_SERVICIO" Type="Self.PRECIO_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="PRECIO_SERVICIO">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___id_pr__5165187F">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO_PROVEEDOR" Type="Self.PRODUCTO_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="PRODUCTO_PROVEEDOR">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___id_pr__52593CB8">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+          <End Role="PRODUCTO_PROVEEDOR" Type="Self.PRODUCTO_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="PRODUCTO_PROVEEDOR">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO__id_cat__4CA06362">
+          <End Role="CATEGORIA_PRODUCTO" Type="Self.CATEGORIA_PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA_PRODUCTO">
+              <PropertyRef Name="id_categoria_producto" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="id_categoria_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEDE__id_ciudad__398D8EEE">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="id_ciudad" />
+            </Principal>
+            <Dependent Role="SEDE">
+              <PropertyRef Name="id_ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICIO__id_cat__440B1D61">
+          <End Role="CATEGORIA_SERVICIO" Type="Self.CATEGORIA_SERVICIO" Multiplicity="0..1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA_SERVICIO">
+              <PropertyRef Name="id_categoria_servicio" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="id_categoria_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VEHICULO___id_cl__5AEE82B9">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="VEHICULO_CLIENTE" Type="Self.VEHICULO_CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="VEHICULO_CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SpaVehicularModelStoreContainer">
+          <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORIA_PRODUCTO" EntityType="Self.CATEGORIA_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORIA_SERVICIO" EntityType="Self.CATEGORIA_SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CITA" EntityType="Self.CITA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CIUDAD" EntityType="Self.CIUDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_FACTURA_PRODUCTO" EntityType="Self.DETALLE_FACTURA_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_FACTURA_SERVICIO" EntityType="Self.DETALLE_FACTURA_SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_ORDEN_COMPRA" EntityType="Self.DETALLE_ORDEN_COMPRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INVENTARIO_SEDE" EntityType="Self.INVENTARIO_SEDE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDEN_COMPRA" EntityType="Self.ORDEN_COMPRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRECIO_SERVICIO" EntityType="Self.PRECIO_SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO_PROVEEDOR" EntityType="Self.PRODUCTO_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEDE" EntityType="Self.SEDE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VEHICULO_CLIENTE" EntityType="Self.VEHICULO_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CITA__id_cliente__5DCAEF64" Association="Self.FK__CITA__id_cliente__5DCAEF64">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CITA__id_sede__5FB337D6" Association="Self.FK__CITA__id_sede__5FB337D6">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CITA__id_vehicul__5EBF139D" Association="Self.FK__CITA__id_vehicul__5EBF139D">
+            <End Role="VEHICULO_CLIENTE" EntitySet="VEHICULO_CLIENTE" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_fa__68487DD7" Association="Self.FK__DETALLE_F__id_fa__68487DD7">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="DETALLE_FACTURA_SERVICIO" EntitySet="DETALLE_FACTURA_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_fa__6C190EBB" Association="Self.FK__DETALLE_F__id_fa__6C190EBB">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="DETALLE_FACTURA_PRODUCTO" EntitySet="DETALLE_FACTURA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_pr__6D0D32F4" Association="Self.FK__DETALLE_F__id_pr__6D0D32F4">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_FACTURA_PRODUCTO" EntitySet="DETALLE_FACTURA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_se__693CA210" Association="Self.FK__DETALLE_F__id_se__693CA210">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="DETALLE_FACTURA_SERVICIO" EntitySet="DETALLE_FACTURA_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_O__id_or__74AE54BC" Association="Self.FK__DETALLE_O__id_or__74AE54BC">
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+            <End Role="DETALLE_ORDEN_COMPRA" EntitySet="DETALLE_ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_O__id_pr__75A278F5" Association="Self.FK__DETALLE_O__id_pr__75A278F5">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_ORDEN_COMPRA" EntitySet="DETALLE_ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__id_car__3F466844" Association="Self.FK__EMPLEADO__id_car__3F466844">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__id_sed__3E52440B" Association="Self.FK__EMPLEADO__id_sed__3E52440B">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_cita__628FA481" Association="Self.FK__FACTURA__id_cita__628FA481">
+            <End Role="CITA" EntitySet="CITA" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_clie__6383C8BA" Association="Self.FK__FACTURA__id_clie__6383C8BA">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_empl__656C112C" Association="Self.FK__FACTURA__id_empl__656C112C">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_sede__6477ECF3" Association="Self.FK__FACTURA__id_sede__6477ECF3">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INVENTARI__id_pr__5535A963" Association="Self.FK__INVENTARI__id_pr__5535A963">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="INVENTARIO_SEDE" EntitySet="INVENTARIO_SEDE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INVENTARI__id_se__5629CD9C" Association="Self.FK__INVENTARI__id_se__5629CD9C">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="INVENTARIO_SEDE" EntitySet="INVENTARIO_SEDE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDEN_COM__id_em__71D1E811" Association="Self.FK__ORDEN_COM__id_em__71D1E811">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDEN_COM__id_pr__6FE99F9F" Association="Self.FK__ORDEN_COM__id_pr__6FE99F9F">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDEN_COM__id_se__70DDC3D8" Association="Self.FK__ORDEN_COM__id_se__70DDC3D8">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRECIO_SE__id_se__46E78A0C" Association="Self.FK__PRECIO_SE__id_se__46E78A0C">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="PRECIO_SERVICIO" EntitySet="PRECIO_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRECIO_SE__id_se__47DBAE45" Association="Self.FK__PRECIO_SE__id_se__47DBAE45">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="PRECIO_SERVICIO" EntitySet="PRECIO_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___id_pr__5165187F" Association="Self.FK__PRODUCTO___id_pr__5165187F">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="PRODUCTO_PROVEEDOR" EntitySet="PRODUCTO_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___id_pr__52593CB8" Association="Self.FK__PRODUCTO___id_pr__52593CB8">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PRODUCTO_PROVEEDOR" EntitySet="PRODUCTO_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO__id_cat__4CA06362" Association="Self.FK__PRODUCTO__id_cat__4CA06362">
+            <End Role="CATEGORIA_PRODUCTO" EntitySet="CATEGORIA_PRODUCTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEDE__id_ciudad__398D8EEE" Association="Self.FK__SEDE__id_ciudad__398D8EEE">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="SEDE" EntitySet="SEDE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICIO__id_cat__440B1D61" Association="Self.FK__SERVICIO__id_cat__440B1D61">
+            <End Role="CATEGORIA_SERVICIO" EntitySet="CATEGORIA_SERVICIO" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VEHICULO___id_cl__5AEE82B9" Association="Self.FK__VEHICULO___id_cl__5AEE82B9">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="VEHICULO_CLIENTE" EntitySet="VEHICULO_CLIENTE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SpaVehicularModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="id_cargo" />
+          </Key>
+          <Property Name="id_cargo" Type="Int32" Nullable="false" />
+          <Property Name="nombre_cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__id_car__3F466844" FromRole="CARGO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="CATEGORIA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_categoria_producto" />
+          </Key>
+          <Property Name="id_categoria_producto" Type="Int32" Nullable="false" />
+          <Property Name="nombre_categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTOes" Relationship="Self.FK__PRODUCTO__id_cat__4CA06362" FromRole="CATEGORIA_PRODUCTO" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="CATEGORIA_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_categoria_servicio" />
+          </Key>
+          <Property Name="id_categoria_servicio" Type="Int32" Nullable="false" />
+          <Property Name="nombre_categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SERVICIOs" Relationship="Self.FK__SERVICIO__id_cat__440B1D61" FromRole="CATEGORIA_SERVICIO" ToRole="SERVICIO" />
+        </EntityType>
+        <EntityType Name="CITA">
+          <Key>
+            <PropertyRef Name="id_cita" />
+          </Key>
+          <Property Name="id_cita" Type="Int32" Nullable="false" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="id_vehiculo" Type="Int32" />
+          <Property Name="id_sede" Type="Int32" />
+          <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado_cita" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="notas" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__CITA__id_cliente__5DCAEF64" FromRole="CITA" ToRole="CLIENTE" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__CITA__id_sede__5FB337D6" FromRole="CITA" ToRole="SEDE" />
+          <NavigationProperty Name="VEHICULO_CLIENTE" Relationship="Self.FK__CITA__id_vehicul__5EBF139D" FromRole="CITA" ToRole="VEHICULO_CLIENTE" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__id_cita__628FA481" FromRole="CITA" ToRole="FACTURA" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="id_ciudad" />
+          </Key>
+          <Property Name="id_ciudad" Type="Int32" Nullable="false" />
+          <Property Name="nombre_ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SEDEs" Relationship="Self.FK__SEDE__id_ciudad__398D8EEE" FromRole="CIUDAD" ToRole="SEDE" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="documento_identidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_cliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CITAs" Relationship="Self.FK__CITA__id_cliente__5DCAEF64" FromRole="CLIENTE" ToRole="CITA" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__id_clie__6383C8BA" FromRole="CLIENTE" ToRole="FACTURA" />
+          <NavigationProperty Name="VEHICULO_CLIENTE" Relationship="Self.FK__VEHICULO___id_cl__5AEE82B9" FromRole="CLIENTE" ToRole="VEHICULO_CLIENTE" />
+        </EntityType>
+        <EntityType Name="DETALLE_FACTURA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_detalle_producto" />
+          </Key>
+          <Property Name="id_detalle_producto" Type="Int32" Nullable="false" />
+          <Property Name="id_factura" Type="Int32" />
+          <Property Name="id_producto" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio_unitario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="FACTURA" Relationship="Self.FK__DETALLE_F__id_fa__6C190EBB" FromRole="DETALLE_FACTURA_PRODUCTO" ToRole="FACTURA" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__DETALLE_F__id_pr__6D0D32F4" FromRole="DETALLE_FACTURA_PRODUCTO" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="DETALLE_FACTURA_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_detalle_servicio" />
+          </Key>
+          <Property Name="id_detalle_servicio" Type="Int32" Nullable="false" />
+          <Property Name="id_factura" Type="Int32" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio_unitario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="FACTURA" Relationship="Self.FK__DETALLE_F__id_fa__68487DD7" FromRole="DETALLE_FACTURA_SERVICIO" ToRole="FACTURA" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.FK__DETALLE_F__id_se__693CA210" FromRole="DETALLE_FACTURA_SERVICIO" ToRole="SERVICIO" />
+        </EntityType>
+        <EntityType Name="DETALLE_ORDEN_COMPRA">
+          <Key>
+            <PropertyRef Name="id_detalle_orden" />
+          </Key>
+          <Property Name="id_detalle_orden" Type="Int32" Nullable="false" />
+          <Property Name="id_orden_compra" Type="Int32" />
+          <Property Name="id_producto" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="precio_unitario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ORDEN_COMPRA" Relationship="Self.FK__DETALLE_O__id_or__74AE54BC" FromRole="DETALLE_ORDEN_COMPRA" ToRole="ORDEN_COMPRA" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__DETALLE_O__id_pr__75A278F5" FromRole="DETALLE_ORDEN_COMPRA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="Int32" Nullable="false" />
+          <Property Name="id_sede" Type="Int32" />
+          <Property Name="id_cargo" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="documento_identidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="fecha_contratacion" Type="DateTime" Precision="0" />
+          <Property Name="salario" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CARGO" Relationship="Self.FK__EMPLEADO__id_car__3F466844" FromRole="EMPLEADO" ToRole="CARGO" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__EMPLEADO__id_sed__3E52440B" FromRole="EMPLEADO" ToRole="SEDE" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__id_empl__656C112C" FromRole="EMPLEADO" ToRole="FACTURA" />
+          <NavigationProperty Name="ORDEN_COMPRA" Relationship="Self.FK__ORDEN_COM__id_em__71D1E811" FromRole="EMPLEADO" ToRole="ORDEN_COMPRA" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="Int32" Nullable="false" />
+          <Property Name="id_cita" Type="Int32" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="id_sede" Type="Int32" />
+          <Property Name="id_empleado" Type="Int32" />
+          <Property Name="numero_factura" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_emision" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="impuesto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="descuento" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="metodo_pago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="estado_pago" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CITA" Relationship="Self.FK__FACTURA__id_cita__628FA481" FromRole="FACTURA" ToRole="CITA" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__FACTURA__id_clie__6383C8BA" FromRole="FACTURA" ToRole="CLIENTE" />
+          <NavigationProperty Name="DETALLE_FACTURA_PRODUCTO" Relationship="Self.FK__DETALLE_F__id_fa__6C190EBB" FromRole="FACTURA" ToRole="DETALLE_FACTURA_PRODUCTO" />
+          <NavigationProperty Name="DETALLE_FACTURA_SERVICIO" Relationship="Self.FK__DETALLE_F__id_fa__68487DD7" FromRole="FACTURA" ToRole="DETALLE_FACTURA_SERVICIO" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__FACTURA__id_empl__656C112C" FromRole="FACTURA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__FACTURA__id_sede__6477ECF3" FromRole="FACTURA" ToRole="SEDE" />
+        </EntityType>
+        <EntityType Name="INVENTARIO_SEDE">
+          <Key>
+            <PropertyRef Name="id_inventario" />
+          </Key>
+          <Property Name="id_inventario" Type="Int32" Nullable="false" />
+          <Property Name="id_producto" Type="Int32" />
+          <Property Name="id_sede" Type="Int32" />
+          <Property Name="cantidad_actual" Type="Int32" Nullable="false" />
+          <Property Name="punto_reorden" Type="Int32" />
+          <Property Name="ubicacion_almacen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__INVENTARI__id_pr__5535A963" FromRole="INVENTARIO_SEDE" ToRole="PRODUCTO" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__INVENTARI__id_se__5629CD9C" FromRole="INVENTARIO_SEDE" ToRole="SEDE" />
+        </EntityType>
+        <EntityType Name="ORDEN_COMPRA">
+          <Key>
+            <PropertyRef Name="id_orden_compra" />
+          </Key>
+          <Property Name="id_orden_compra" Type="Int32" Nullable="false" />
+          <Property Name="id_proveedor" Type="Int32" />
+          <Property Name="id_sede" Type="Int32" />
+          <Property Name="id_empleado" Type="Int32" />
+          <Property Name="numero_orden" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_orden" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha_entrega_esperada" Type="DateTime" Precision="0" />
+          <Property Name="estado_orden" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="impuesto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="DETALLE_ORDEN_COMPRA" Relationship="Self.FK__DETALLE_O__id_or__74AE54BC" FromRole="ORDEN_COMPRA" ToRole="DETALLE_ORDEN_COMPRA" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__ORDEN_COM__id_em__71D1E811" FromRole="ORDEN_COMPRA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__ORDEN_COM__id_pr__6FE99F9F" FromRole="ORDEN_COMPRA" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__ORDEN_COM__id_se__70DDC3D8" FromRole="ORDEN_COMPRA" ToRole="SEDE" />
+        </EntityType>
+        <EntityType Name="PRECIO_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_precio_servicio" />
+          </Key>
+          <Property Name="id_precio_servicio" Type="Int32" Nullable="false" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="id_sede" Type="Int32" />
+          <Property Name="precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="fecha_inicio_vigencia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha_fin_vigencia" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.FK__PRECIO_SE__id_se__46E78A0C" FromRole="PRECIO_SERVICIO" ToRole="SERVICIO" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__PRECIO_SE__id_se__47DBAE45" FromRole="PRECIO_SERVICIO" ToRole="SEDE" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria_producto" Type="Int32" />
+          <Property Name="nombre_producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="unidad_medida" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CATEGORIA_PRODUCTO" Relationship="Self.FK__PRODUCTO__id_cat__4CA06362" FromRole="PRODUCTO" ToRole="CATEGORIA_PRODUCTO" />
+          <NavigationProperty Name="DETALLE_FACTURA_PRODUCTO" Relationship="Self.FK__DETALLE_F__id_pr__6D0D32F4" FromRole="PRODUCTO" ToRole="DETALLE_FACTURA_PRODUCTO" />
+          <NavigationProperty Name="DETALLE_ORDEN_COMPRA" Relationship="Self.FK__DETALLE_O__id_pr__75A278F5" FromRole="PRODUCTO" ToRole="DETALLE_ORDEN_COMPRA" />
+          <NavigationProperty Name="INVENTARIO_SEDE" Relationship="Self.FK__INVENTARI__id_pr__5535A963" FromRole="PRODUCTO" ToRole="INVENTARIO_SEDE" />
+          <NavigationProperty Name="PRODUCTO_PROVEEDOR" Relationship="Self.FK__PRODUCTO___id_pr__5165187F" FromRole="PRODUCTO" ToRole="PRODUCTO_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="id_producto_proveedor" />
+          </Key>
+          <Property Name="id_producto_proveedor" Type="Int32" Nullable="false" />
+          <Property Name="id_producto" Type="Int32" />
+          <Property Name="id_proveedor" Type="Int32" />
+          <Property Name="precio_compra" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="tiempo_entrega" Type="Int32" />
+          <Property Name="cantidad_minima" Type="Int32" />
+          <Property Name="es_proveedor_principal" Type="Boolean" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__PRODUCTO___id_pr__5165187F" FromRole="PRODUCTO_PROVEEDOR" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__PRODUCTO___id_pr__52593CB8" FromRole="PRODUCTO_PROVEEDOR" ToRole="PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+          <Property Name="nombre_empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nif" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="persona_contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="estado_proveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ORDEN_COMPRA" Relationship="Self.FK__ORDEN_COM__id_pr__6FE99F9F" FromRole="PROVEEDOR" ToRole="ORDEN_COMPRA" />
+          <NavigationProperty Name="PRODUCTO_PROVEEDOR" Relationship="Self.FK__PRODUCTO___id_pr__52593CB8" FromRole="PROVEEDOR" ToRole="PRODUCTO_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="SEDE">
+          <Key>
+            <PropertyRef Name="id_sede" />
+          </Key>
+          <Property Name="id_sede" Type="Int32" Nullable="false" />
+          <Property Name="id_ciudad" Type="Int32" />
+          <Property Name="nombre_sede" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="hora_apertura" Type="Time" Precision="7" />
+          <Property Name="hora_cierre" Type="Time" Precision="7" />
+          <NavigationProperty Name="CITAs" Relationship="Self.FK__CITA__id_sede__5FB337D6" FromRole="SEDE" ToRole="CITA" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__SEDE__id_ciudad__398D8EEE" FromRole="SEDE" ToRole="CIUDAD" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__id_sed__3E52440B" FromRole="SEDE" ToRole="EMPLEADO" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__id_sede__6477ECF3" FromRole="SEDE" ToRole="FACTURA" />
+          <NavigationProperty Name="INVENTARIO_SEDE" Relationship="Self.FK__INVENTARI__id_se__5629CD9C" FromRole="SEDE" ToRole="INVENTARIO_SEDE" />
+          <NavigationProperty Name="ORDEN_COMPRA" Relationship="Self.FK__ORDEN_COM__id_se__70DDC3D8" FromRole="SEDE" ToRole="ORDEN_COMPRA" />
+          <NavigationProperty Name="PRECIO_SERVICIO" Relationship="Self.FK__PRECIO_SE__id_se__47DBAE45" FromRole="SEDE" ToRole="PRECIO_SERVICIO" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria_servicio" Type="Int32" />
+          <Property Name="nombre_servicio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="duracion_estimada" Type="Int32" />
+          <NavigationProperty Name="CATEGORIA_SERVICIO" Relationship="Self.FK__SERVICIO__id_cat__440B1D61" FromRole="SERVICIO" ToRole="CATEGORIA_SERVICIO" />
+          <NavigationProperty Name="DETALLE_FACTURA_SERVICIO" Relationship="Self.FK__DETALLE_F__id_se__693CA210" FromRole="SERVICIO" ToRole="DETALLE_FACTURA_SERVICIO" />
+          <NavigationProperty Name="PRECIO_SERVICIO" Relationship="Self.FK__PRECIO_SE__id_se__46E78A0C" FromRole="SERVICIO" ToRole="PRECIO_SERVICIO" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VEHICULO_CLIENTE">
+          <Key>
+            <PropertyRef Name="id_vehiculo" />
+          </Key>
+          <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="matricula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="anio" Type="Int32" />
+          <Property Name="color" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_vehiculo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CITAs" Relationship="Self.FK__CITA__id_vehicul__5EBF139D" FromRole="VEHICULO_CLIENTE" ToRole="CITA" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__VEHICULO___id_cl__5AEE82B9" FromRole="VEHICULO_CLIENTE" ToRole="CLIENTE" />
+        </EntityType>
+        <Association Name="FK__EMPLEADO__id_car__3F466844">
+          <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="id_cargo" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="id_cargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO__id_cat__4CA06362">
+          <End Role="CATEGORIA_PRODUCTO" Type="Self.CATEGORIA_PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA_PRODUCTO">
+              <PropertyRef Name="id_categoria_producto" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="id_categoria_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SERVICIO__id_cat__440B1D61">
+          <End Role="CATEGORIA_SERVICIO" Type="Self.CATEGORIA_SERVICIO" Multiplicity="0..1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA_SERVICIO">
+              <PropertyRef Name="id_categoria_servicio" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="id_categoria_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CITA__id_cliente__5DCAEF64">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CITA__id_sede__5FB337D6">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CITA__id_vehicul__5EBF139D">
+          <End Role="VEHICULO_CLIENTE" Type="Self.VEHICULO_CLIENTE" Multiplicity="0..1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULO_CLIENTE">
+              <PropertyRef Name="id_vehiculo" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="id_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_cita__628FA481">
+          <End Role="CITA" Type="Self.CITA" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITA">
+              <PropertyRef Name="id_cita" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_cita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEDE__id_ciudad__398D8EEE">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="id_ciudad" />
+            </Principal>
+            <Dependent Role="SEDE">
+              <PropertyRef Name="id_ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_clie__6383C8BA">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VEHICULO___id_cl__5AEE82B9">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="VEHICULO_CLIENTE" Type="Self.VEHICULO_CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="VEHICULO_CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_fa__6C190EBB">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_PRODUCTO" Type="Self.DETALLE_FACTURA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_PRODUCTO">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_pr__6D0D32F4">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_PRODUCTO" Type="Self.DETALLE_FACTURA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_fa__68487DD7">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_SERVICIO" Type="Self.DETALLE_FACTURA_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_SERVICIO">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_F__id_se__693CA210">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="0..1" />
+          <End Role="DETALLE_FACTURA_SERVICIO" Type="Self.DETALLE_FACTURA_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA_SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_O__id_or__74AE54BC">
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="0..1" />
+          <End Role="DETALLE_ORDEN_COMPRA" Type="Self.DETALLE_ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_orden_compra" />
+            </Principal>
+            <Dependent Role="DETALLE_ORDEN_COMPRA">
+              <PropertyRef Name="id_orden_compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_O__id_pr__75A278F5">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_ORDEN_COMPRA" Type="Self.DETALLE_ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="DETALLE_ORDEN_COMPRA">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__id_sed__3E52440B">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_empl__656C112C">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="id_empleado" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDEN_COM__id_em__71D1E811">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="id_empleado" />
+            </Principal>
+            <Dependent Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__id_sede__6477ECF3">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INVENTARI__id_pr__5535A963">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="INVENTARIO_SEDE" Type="Self.INVENTARIO_SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="INVENTARIO_SEDE">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INVENTARI__id_se__5629CD9C">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="INVENTARIO_SEDE" Type="Self.INVENTARIO_SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="INVENTARIO_SEDE">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDEN_COM__id_pr__6FE99F9F">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDEN_COM__id_se__70DDC3D8">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="ORDEN_COMPRA">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRECIO_SE__id_se__46E78A0C">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="0..1" />
+          <End Role="PRECIO_SERVICIO" Type="Self.PRECIO_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="PRECIO_SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRECIO_SE__id_se__47DBAE45">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="PRECIO_SERVICIO" Type="Self.PRECIO_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="id_sede" />
+            </Principal>
+            <Dependent Role="PRECIO_SERVICIO">
+              <PropertyRef Name="id_sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___id_pr__5165187F">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO_PROVEEDOR" Type="Self.PRODUCTO_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="PRODUCTO_PROVEEDOR">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___id_pr__52593CB8">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+          <End Role="PRODUCTO_PROVEEDOR" Type="Self.PRODUCTO_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="PRODUCTO_PROVEEDOR">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SpaVehicularEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CARGOes" EntityType="Self.CARGO" />
+          <EntitySet Name="CATEGORIA_PRODUCTO" EntityType="Self.CATEGORIA_PRODUCTO" />
+          <EntitySet Name="CATEGORIA_SERVICIO" EntityType="Self.CATEGORIA_SERVICIO" />
+          <EntitySet Name="CITAs" EntityType="Self.CITA" />
+          <EntitySet Name="CIUDADs" EntityType="Self.CIUDAD" />
+          <EntitySet Name="CLIENTEs" EntityType="Self.CLIENTE" />
+          <EntitySet Name="DETALLE_FACTURA_PRODUCTO" EntityType="Self.DETALLE_FACTURA_PRODUCTO" />
+          <EntitySet Name="DETALLE_FACTURA_SERVICIO" EntityType="Self.DETALLE_FACTURA_SERVICIO" />
+          <EntitySet Name="DETALLE_ORDEN_COMPRA" EntityType="Self.DETALLE_ORDEN_COMPRA" />
+          <EntitySet Name="EMPLEADOes" EntityType="Self.EMPLEADO" />
+          <EntitySet Name="FACTURAs" EntityType="Self.FACTURA" />
+          <EntitySet Name="INVENTARIO_SEDE" EntityType="Self.INVENTARIO_SEDE" />
+          <EntitySet Name="ORDEN_COMPRA" EntityType="Self.ORDEN_COMPRA" />
+          <EntitySet Name="PRECIO_SERVICIO" EntityType="Self.PRECIO_SERVICIO" />
+          <EntitySet Name="PRODUCTOes" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="PRODUCTO_PROVEEDOR" EntityType="Self.PRODUCTO_PROVEEDOR" />
+          <EntitySet Name="PROVEEDORs" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="SEDEs" EntityType="Self.SEDE" />
+          <EntitySet Name="SERVICIOs" EntityType="Self.SERVICIO" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="VEHICULO_CLIENTE" EntityType="Self.VEHICULO_CLIENTE" />
+          <AssociationSet Name="FK__EMPLEADO__id_car__3F466844" Association="Self.FK__EMPLEADO__id_car__3F466844">
+            <End Role="CARGO" EntitySet="CARGOes" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO__id_cat__4CA06362" Association="Self.FK__PRODUCTO__id_cat__4CA06362">
+            <End Role="CATEGORIA_PRODUCTO" EntitySet="CATEGORIA_PRODUCTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SERVICIO__id_cat__440B1D61" Association="Self.FK__SERVICIO__id_cat__440B1D61">
+            <End Role="CATEGORIA_SERVICIO" EntitySet="CATEGORIA_SERVICIO" />
+            <End Role="SERVICIO" EntitySet="SERVICIOs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CITA__id_cliente__5DCAEF64" Association="Self.FK__CITA__id_cliente__5DCAEF64">
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+            <End Role="CITA" EntitySet="CITAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CITA__id_sede__5FB337D6" Association="Self.FK__CITA__id_sede__5FB337D6">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="CITA" EntitySet="CITAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CITA__id_vehicul__5EBF139D" Association="Self.FK__CITA__id_vehicul__5EBF139D">
+            <End Role="VEHICULO_CLIENTE" EntitySet="VEHICULO_CLIENTE" />
+            <End Role="CITA" EntitySet="CITAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_cita__628FA481" Association="Self.FK__FACTURA__id_cita__628FA481">
+            <End Role="CITA" EntitySet="CITAs" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEDE__id_ciudad__398D8EEE" Association="Self.FK__SEDE__id_ciudad__398D8EEE">
+            <End Role="CIUDAD" EntitySet="CIUDADs" />
+            <End Role="SEDE" EntitySet="SEDEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_clie__6383C8BA" Association="Self.FK__FACTURA__id_clie__6383C8BA">
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VEHICULO___id_cl__5AEE82B9" Association="Self.FK__VEHICULO___id_cl__5AEE82B9">
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+            <End Role="VEHICULO_CLIENTE" EntitySet="VEHICULO_CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_fa__6C190EBB" Association="Self.FK__DETALLE_F__id_fa__6C190EBB">
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+            <End Role="DETALLE_FACTURA_PRODUCTO" EntitySet="DETALLE_FACTURA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_pr__6D0D32F4" Association="Self.FK__DETALLE_F__id_pr__6D0D32F4">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="DETALLE_FACTURA_PRODUCTO" EntitySet="DETALLE_FACTURA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_fa__68487DD7" Association="Self.FK__DETALLE_F__id_fa__68487DD7">
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+            <End Role="DETALLE_FACTURA_SERVICIO" EntitySet="DETALLE_FACTURA_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_F__id_se__693CA210" Association="Self.FK__DETALLE_F__id_se__693CA210">
+            <End Role="SERVICIO" EntitySet="SERVICIOs" />
+            <End Role="DETALLE_FACTURA_SERVICIO" EntitySet="DETALLE_FACTURA_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_O__id_or__74AE54BC" Association="Self.FK__DETALLE_O__id_or__74AE54BC">
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+            <End Role="DETALLE_ORDEN_COMPRA" EntitySet="DETALLE_ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_O__id_pr__75A278F5" Association="Self.FK__DETALLE_O__id_pr__75A278F5">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="DETALLE_ORDEN_COMPRA" EntitySet="DETALLE_ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__id_sed__3E52440B" Association="Self.FK__EMPLEADO__id_sed__3E52440B">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_empl__656C112C" Association="Self.FK__FACTURA__id_empl__656C112C">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDEN_COM__id_em__71D1E811" Association="Self.FK__ORDEN_COM__id_em__71D1E811">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__id_sede__6477ECF3" Association="Self.FK__FACTURA__id_sede__6477ECF3">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INVENTARI__id_pr__5535A963" Association="Self.FK__INVENTARI__id_pr__5535A963">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="INVENTARIO_SEDE" EntitySet="INVENTARIO_SEDE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INVENTARI__id_se__5629CD9C" Association="Self.FK__INVENTARI__id_se__5629CD9C">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="INVENTARIO_SEDE" EntitySet="INVENTARIO_SEDE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDEN_COM__id_pr__6FE99F9F" Association="Self.FK__ORDEN_COM__id_pr__6FE99F9F">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDEN_COM__id_se__70DDC3D8" Association="Self.FK__ORDEN_COM__id_se__70DDC3D8">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRECIO_SE__id_se__46E78A0C" Association="Self.FK__PRECIO_SE__id_se__46E78A0C">
+            <End Role="SERVICIO" EntitySet="SERVICIOs" />
+            <End Role="PRECIO_SERVICIO" EntitySet="PRECIO_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRECIO_SE__id_se__47DBAE45" Association="Self.FK__PRECIO_SE__id_se__47DBAE45">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="PRECIO_SERVICIO" EntitySet="PRECIO_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___id_pr__5165187F" Association="Self.FK__PRODUCTO___id_pr__5165187F">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="PRODUCTO_PROVEEDOR" EntitySet="PRODUCTO_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___id_pr__52593CB8" Association="Self.FK__PRODUCTO___id_pr__52593CB8">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="PRODUCTO_PROVEEDOR" EntitySet="PRODUCTO_PROVEEDOR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SpaVehicularModelStoreContainer" CdmEntityContainer="SpaVehicularEntities">
+          <EntitySetMapping Name="CARGOes">
+            <EntityTypeMapping TypeName="SpaVehicularModel.CARGO">
+              <MappingFragment StoreEntitySet="CARGO">
+                <ScalarProperty Name="id_cargo" ColumnName="id_cargo" />
+                <ScalarProperty Name="nombre_cargo" ColumnName="nombre_cargo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIA_PRODUCTO">
+            <EntityTypeMapping TypeName="SpaVehicularModel.CATEGORIA_PRODUCTO">
+              <MappingFragment StoreEntitySet="CATEGORIA_PRODUCTO">
+                <ScalarProperty Name="id_categoria_producto" ColumnName="id_categoria_producto" />
+                <ScalarProperty Name="nombre_categoria" ColumnName="nombre_categoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIA_SERVICIO">
+            <EntityTypeMapping TypeName="SpaVehicularModel.CATEGORIA_SERVICIO">
+              <MappingFragment StoreEntitySet="CATEGORIA_SERVICIO">
+                <ScalarProperty Name="id_categoria_servicio" ColumnName="id_categoria_servicio" />
+                <ScalarProperty Name="nombre_categoria" ColumnName="nombre_categoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CITAs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.CITA">
+              <MappingFragment StoreEntitySet="CITA">
+                <ScalarProperty Name="id_cita" ColumnName="id_cita" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="estado_cita" ColumnName="estado_cita" />
+                <ScalarProperty Name="notas" ColumnName="notas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CIUDADs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.CIUDAD">
+              <MappingFragment StoreEntitySet="CIUDAD">
+                <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+                <ScalarProperty Name="nombre_ciudad" ColumnName="nombre_ciudad" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTEs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+                <ScalarProperty Name="documento_identidad" ColumnName="documento_identidad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado_cliente" ColumnName="estado_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_FACTURA_PRODUCTO">
+            <EntityTypeMapping TypeName="SpaVehicularModel.DETALLE_FACTURA_PRODUCTO">
+              <MappingFragment StoreEntitySet="DETALLE_FACTURA_PRODUCTO">
+                <ScalarProperty Name="id_detalle_producto" ColumnName="id_detalle_producto" />
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_FACTURA_SERVICIO">
+            <EntityTypeMapping TypeName="SpaVehicularModel.DETALLE_FACTURA_SERVICIO">
+              <MappingFragment StoreEntitySet="DETALLE_FACTURA_SERVICIO">
+                <ScalarProperty Name="id_detalle_servicio" ColumnName="id_detalle_servicio" />
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_ORDEN_COMPRA">
+            <EntityTypeMapping TypeName="SpaVehicularModel.DETALLE_ORDEN_COMPRA">
+              <MappingFragment StoreEntitySet="DETALLE_ORDEN_COMPRA">
+                <ScalarProperty Name="id_detalle_orden" ColumnName="id_detalle_orden" />
+                <ScalarProperty Name="id_orden_compra" ColumnName="id_orden_compra" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADOes">
+            <EntityTypeMapping TypeName="SpaVehicularModel.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="id_cargo" ColumnName="id_cargo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="documento_identidad" ColumnName="documento_identidad" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="fecha_contratacion" ColumnName="fecha_contratacion" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURAs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.FACTURA">
+              <MappingFragment StoreEntitySet="FACTURA">
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="id_cita" ColumnName="id_cita" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
+                <ScalarProperty Name="estado_pago" ColumnName="estado_pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INVENTARIO_SEDE">
+            <EntityTypeMapping TypeName="SpaVehicularModel.INVENTARIO_SEDE">
+              <MappingFragment StoreEntitySet="INVENTARIO_SEDE">
+                <ScalarProperty Name="id_inventario" ColumnName="id_inventario" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="cantidad_actual" ColumnName="cantidad_actual" />
+                <ScalarProperty Name="punto_reorden" ColumnName="punto_reorden" />
+                <ScalarProperty Name="ubicacion_almacen" ColumnName="ubicacion_almacen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDEN_COMPRA">
+            <EntityTypeMapping TypeName="SpaVehicularModel.ORDEN_COMPRA">
+              <MappingFragment StoreEntitySet="ORDEN_COMPRA">
+                <ScalarProperty Name="id_orden_compra" ColumnName="id_orden_compra" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="numero_orden" ColumnName="numero_orden" />
+                <ScalarProperty Name="fecha_orden" ColumnName="fecha_orden" />
+                <ScalarProperty Name="fecha_entrega_esperada" ColumnName="fecha_entrega_esperada" />
+                <ScalarProperty Name="estado_orden" ColumnName="estado_orden" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRECIO_SERVICIO">
+            <EntityTypeMapping TypeName="SpaVehicularModel.PRECIO_SERVICIO">
+              <MappingFragment StoreEntitySet="PRECIO_SERVICIO">
+                <ScalarProperty Name="id_precio_servicio" ColumnName="id_precio_servicio" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="fecha_inicio_vigencia" ColumnName="fecha_inicio_vigencia" />
+                <ScalarProperty Name="fecha_fin_vigencia" ColumnName="fecha_fin_vigencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTOes">
+            <EntityTypeMapping TypeName="SpaVehicularModel.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="id_categoria_producto" ColumnName="id_categoria_producto" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="unidad_medida" ColumnName="unidad_medida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO_PROVEEDOR">
+            <EntityTypeMapping TypeName="SpaVehicularModel.PRODUCTO_PROVEEDOR">
+              <MappingFragment StoreEntitySet="PRODUCTO_PROVEEDOR">
+                <ScalarProperty Name="id_producto_proveedor" ColumnName="id_producto_proveedor" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="precio_compra" ColumnName="precio_compra" />
+                <ScalarProperty Name="tiempo_entrega" ColumnName="tiempo_entrega" />
+                <ScalarProperty Name="cantidad_minima" ColumnName="cantidad_minima" />
+                <ScalarProperty Name="es_proveedor_principal" ColumnName="es_proveedor_principal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDORs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="nombre_empresa" ColumnName="nombre_empresa" />
+                <ScalarProperty Name="nif" ColumnName="nif" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="persona_contacto" ColumnName="persona_contacto" />
+                <ScalarProperty Name="estado_proveedor" ColumnName="estado_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEDEs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.SEDE">
+              <MappingFragment StoreEntitySet="SEDE">
+                <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+                <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+                <ScalarProperty Name="nombre_sede" ColumnName="nombre_sede" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="hora_apertura" ColumnName="hora_apertura" />
+                <ScalarProperty Name="hora_cierre" ColumnName="hora_cierre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIOs">
+            <EntityTypeMapping TypeName="SpaVehicularModel.SERVICIO">
+              <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="id_categoria_servicio" ColumnName="id_categoria_servicio" />
+                <ScalarProperty Name="nombre_servicio" ColumnName="nombre_servicio" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="duracion_estimada" ColumnName="duracion_estimada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SpaVehicularModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEHICULO_CLIENTE">
+            <EntityTypeMapping TypeName="SpaVehicularModel.VEHICULO_CLIENTE">
+              <MappingFragment StoreEntitySet="VEHICULO_CLIENTE">
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="tipo_vehiculo" ColumnName="tipo_vehiculo" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
