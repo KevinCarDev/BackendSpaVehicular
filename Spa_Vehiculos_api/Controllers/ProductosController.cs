@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace Spa_Vehiculos_api.Controllers
 {
     [RoutePrefix("api/Productos")]
-    [Authorize]
+    //[Authorize]
     public class ProductosController : ApiController
     {
         [HttpGet]
