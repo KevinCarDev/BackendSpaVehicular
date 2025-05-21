@@ -12,30 +12,24 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PROVEEDOR
+    public partial class Proveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PROVEEDOR()
+        public Proveedor()
         {
-            this.ORDEN_COMPRA = new HashSet<ORDEN_COMPRA>();
-            this.PRODUCTO_PROVEEDOR = new HashSet<PRODUCTO_PROVEEDOR>();
+            this.Orden_Compra = new HashSet<Orden_Compra>();
+            this.Producto_Proveedor = new HashSet<Producto_Proveedor>();
         }
     
-        public int id_proveedor { get; set; }
-        public string nombre_empresa { get; set; }
-        public string nif { get; set; }
-        public string direccion { get; set; }
-        public string ciudad { get; set; }
-        public string estado { get; set; }
-        public string pais { get; set; }
-        public string telefono { get; set; }
-        public string email { get; set; }
-        public string persona_contacto { get; set; }
-        public string estado_proveedor { get; set; }
+        public int ID_Proveedor { get; set; }
+        public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDEN_COMPRA> ORDEN_COMPRA { get; set; }
+        public virtual ICollection<Orden_Compra> Orden_Compra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCTO_PROVEEDOR> PRODUCTO_PROVEEDOR { get; set; }
+        public virtual ICollection<Producto_Proveedor> Producto_Proveedor { get; set; }
     }
 }

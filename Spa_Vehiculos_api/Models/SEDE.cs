@@ -12,40 +12,34 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SEDE
+    public partial class Sede
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SEDE()
+        public Sede()
         {
-            this.CITAs = new HashSet<CITA>();
-            this.EMPLEADOes = new HashSet<EMPLEADO>();
-            this.FACTURAs = new HashSet<FACTURA>();
-            this.INVENTARIO_SEDE = new HashSet<INVENTARIO_SEDE>();
-            this.ORDEN_COMPRA = new HashSet<ORDEN_COMPRA>();
-            this.PRECIO_SERVICIO = new HashSet<PRECIO_SERVICIO>();
+            this.Citas = new HashSet<Cita>();
+            this.Empleadoes = new HashSet<Empleado>();
+            this.Facturas = new HashSet<Factura>();
+            this.Orden_Compra = new HashSet<Orden_Compra>();
         }
     
-        public int id_sede { get; set; }
-        public Nullable<int> id_ciudad { get; set; }
-        public string nombre_sede { get; set; }
-        public string direccion { get; set; }
-        public string telefono { get; set; }
-        public string email { get; set; }
-        public Nullable<System.TimeSpan> hora_apertura { get; set; }
-        public Nullable<System.TimeSpan> hora_cierre { get; set; }
+        public int ID_Sede { get; set; }
+        public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
+        public System.TimeSpan Hora_Apertura { get; set; }
+        public System.TimeSpan Hora_Cierre { get; set; }
+        public int Ciudad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CITA> CITAs { get; set; }
-        public virtual CIUDAD CIUDAD { get; set; }
+        public virtual ICollection<Cita> Citas { get; set; }
+        public virtual Ciudad Ciudad1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPLEADO> EMPLEADOes { get; set; }
+        public virtual ICollection<Empleado> Empleadoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURA> FACTURAs { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INVENTARIO_SEDE> INVENTARIO_SEDE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDEN_COMPRA> ORDEN_COMPRA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRECIO_SERVICIO> PRECIO_SERVICIO { get; set; }
+        public virtual ICollection<Orden_Compra> Orden_Compra { get; set; }
     }
 }

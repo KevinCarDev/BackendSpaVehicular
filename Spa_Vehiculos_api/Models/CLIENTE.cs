@@ -12,33 +12,28 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CLIENTE
+    public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CLIENTE()
+        public Cliente()
         {
-            this.CITAs = new HashSet<CITA>();
-            this.FACTURAs = new HashSet<FACTURA>();
-            this.VEHICULO_CLIENTE = new HashSet<VEHICULO_CLIENTE>();
+            this.Facturas = new HashSet<Factura>();
+            this.Vehiculo_Cliente = new HashSet<Vehiculo_Cliente>();
         }
     
-        public int id_cliente { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string tipo_documento { get; set; }
-        public string documento_identidad { get; set; }
-        public string telefono { get; set; }
-        public string email { get; set; }
-        public Nullable<System.DateTime> fecha_registro { get; set; }
-        public string direccion { get; set; }
-        public string ciudad { get; set; }
-        public string estado_cliente { get; set; }
+        public int Documento { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public int Telefono { get; set; }
+        public int Direccion { get; set; }
+        public int Email { get; set; }
     
+        public virtual Direccion_Cliente Direccion_Cliente { get; set; }
+        public virtual Email_Cliente Email_Cliente { get; set; }
+        public virtual Telefono_Cliente Telefono_Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CITA> CITAs { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURA> FACTURAs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VEHICULO_CLIENTE> VEHICULO_CLIENTE { get; set; }
+        public virtual ICollection<Vehiculo_Cliente> Vehiculo_Cliente { get; set; }
     }
 }

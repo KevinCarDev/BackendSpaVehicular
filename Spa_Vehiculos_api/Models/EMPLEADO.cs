@@ -12,32 +12,28 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EMPLEADO
+    public partial class Empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMPLEADO()
+        public Empleado()
         {
-            this.FACTURAs = new HashSet<FACTURA>();
-            this.ORDEN_COMPRA = new HashSet<ORDEN_COMPRA>();
+            this.Perfils = new HashSet<Perfil>();
         }
     
-        public int id_empleado { get; set; }
-        public Nullable<int> id_sede { get; set; }
-        public Nullable<int> id_cargo { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string documento_identidad { get; set; }
-        public Nullable<System.DateTime> fecha_nacimiento { get; set; }
-        public Nullable<System.DateTime> fecha_contratacion { get; set; }
-        public Nullable<decimal> salario { get; set; }
-        public string telefono { get; set; }
-        public string email { get; set; }
+        public int ID_Empleado { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public Nullable<decimal> Salario { get; set; }
+        public Nullable<System.DateTime> Fecha_Nacimiento { get; set; }
+        public string Cargo { get; set; }
+        public int Telefono { get; set; }
+        public int Email { get; set; }
+        public int Sede { get; set; }
     
-        public virtual CARGO CARGO { get; set; }
-        public virtual SEDE SEDE { get; set; }
+        public virtual Email_Empleado Email_Empleado { get; set; }
+        public virtual Sede Sede1 { get; set; }
+        public virtual Telefono_Empleado Telefono_Empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURA> FACTURAs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDEN_COMPRA> ORDEN_COMPRA { get; set; }
+        public virtual ICollection<Perfil> Perfils { get; set; }
     }
 }

@@ -12,20 +12,20 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CIUDAD
+    public partial class Ciudad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CIUDAD()
+        public Ciudad()
         {
-            this.SEDEs = new HashSet<SEDE>();
+            this.Sedes = new HashSet<Sede>();
         }
     
-        public int id_ciudad { get; set; }
-        public string nombre_ciudad { get; set; }
-        public string Departamento { get; set; }
-        public string pais { get; set; }
+        public int ID_Ciudad { get; set; }
+        public string Nombre { get; set; }
+        public int Departamento { get; set; }
     
+        public virtual Departamento Departamento1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SEDE> SEDEs { get; set; }
+        public virtual ICollection<Sede> Sedes { get; set; }
     }
 }

@@ -11,13 +11,13 @@ namespace Spa_Vehiculos_api.Clases
     {
 
         private SpaVehicularEntities dbSpaVehicular = new SpaVehicularEntities();
-        public PRODUCTO producto { get; set; }
+        public Producto Producto { get; set; }
 
         public string Insertar()
         {
             try
             {
-                dbSpaVehicular.PRODUCTOes.Add(producto);
+                dbSpaVehicular.Productoes.Add(Producto);
                 dbSpaVehicular.SaveChanges();
                 return "Producto insertado correctamente";
 
@@ -33,12 +33,12 @@ namespace Spa_Vehiculos_api.Clases
         {
             try
             {
-                PRODUCTO prod = Consultar(producto.id_producto);
+                Producto prod = Consultar(Producto.ID_Producto);
                 if (prod == null)
                 {
-                    return "No se encontró el producto";
+                    return "No se encontró el Producto";
                 }
-                dbSpaVehicular.PRODUCTOes.AddOrUpdate(producto);
+                dbSpaVehicular.Productoes.AddOrUpdate(Producto);
                 dbSpaVehicular.SaveChanges();
                 return "Producto actualizado correctamente";
 
@@ -50,37 +50,37 @@ namespace Spa_Vehiculos_api.Clases
             }
         }
 
-        public PRODUCTO Consultar(int id_producto)
+        public Producto Consultar(int ID_Producto)
         {
-            PRODUCTO prod = dbSpaVehicular.PRODUCTOes.FirstOrDefault(p => p.id_producto == id_producto);
+            Producto prod = dbSpaVehicular.Productoes.FirstOrDefault(p => p.ID_Producto == ID_Producto);
             return prod;
         }
 
-        public List<PRODUCTO> ConsultarTodos()
+        public List<Producto> ConsultarTodos()
         {
-            return dbSpaVehicular.PRODUCTOes
-                .OrderBy(p => p.nombre_producto)
+            return dbSpaVehicular.Productoes
+                .OrderBy(p => p.Nombre)
                 .ToList();
         }
 
-        public List<PRODUCTO> ConsultarXTipo(int id_producto)
+        public List<Producto> ConsultarXId(int ID_Producto)
         {
-            return dbSpaVehicular.PRODUCTOes
-                .Where(p => p.id_producto == id_producto)
-                .OrderBy(p => p.nombre_producto)
+            return dbSpaVehicular.Productoes
+                .Where(p => p.ID_Producto == ID_Producto)
+                .OrderBy(p => p.Nombre)
                 .ToList();
         }
 
-        public string Eliminar(int id_producto)
+        public string Eliminar(int ID_Producto)
         {
             try
             {
-                PRODUCTO prod = Consultar(id_producto);
+                Producto prod = Consultar(ID_Producto);
                 if (prod == null)
                 {
-                    return "El producto no existe";
+                    return "El Producto no existe";
                 }
-                dbSpaVehicular.PRODUCTOes.Remove(prod);
+                dbSpaVehicular.Productoes.Remove(prod);
                 dbSpaVehicular.SaveChanges();
                 return "Producto eliminado correctamente";
 

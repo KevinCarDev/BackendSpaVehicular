@@ -12,19 +12,19 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CATEGORIA_PRODUCTO
+    public partial class Categoria_Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CATEGORIA_PRODUCTO()
+        public Categoria_Producto()
         {
-            this.PRODUCTOes = new HashSet<PRODUCTO>();
+            this.Productoes = new HashSet<Producto>();
         }
     
-        public int id_categoria_producto { get; set; }
-        public string nombre_categoria { get; set; }
-        public string descripcion { get; set; }
+        public int ID_Categoria { get; set; }
+        public string Categoria { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCTO> PRODUCTOes { get; set; }
+        public virtual ICollection<Producto> Productoes { get; set; }
     }
 }

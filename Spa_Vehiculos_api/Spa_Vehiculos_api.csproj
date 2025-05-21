@@ -171,61 +171,70 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CARGO.cs">
+    <Compile Include="Models\Categoria_Producto.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CATEGORIA_PRODUCTO.cs">
+    <Compile Include="Models\Categoria_Servicio.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CATEGORIA_SERVICIO.cs">
+    <Compile Include="Models\Cita.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CITA.cs">
+    <Compile Include="Models\Ciudad.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CIUDAD.cs">
+    <Compile Include="Models\Cliente.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CLIENTE.cs">
+    <Compile Include="Models\Departamento.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DETALLE_FACTURA_PRODUCTO.cs">
+    <Compile Include="Models\Detalle_Factura_Producto.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DETALLE_FACTURA_SERVICIO.cs">
+    <Compile Include="Models\Detalle_Factura_Servicio.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DETALLE_ORDEN_COMPRA.cs">
+    <Compile Include="Models\Detalle_Orden_Compra.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMPLEADO.cs">
+    <Compile Include="Models\Direccion_Cliente.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FACTURA.cs">
+    <Compile Include="Models\Email_Cliente.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\INVENTARIO_SEDE.cs">
+    <Compile Include="Models\Email_Empleado.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ORDEN_COMPRA.cs">
+    <Compile Include="Models\Empleado.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PRECIO_SERVICIO.cs">
+    <Compile Include="Models\Factura.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PRODUCTO.cs">
+    <Compile Include="Models\Metodo_Pago.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PRODUCTO_PROVEEDOR.cs">
+    <Compile Include="Models\Orden_Compra.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PROVEEDOR.cs">
+    <Compile Include="Models\Perfil.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SEDE.cs">
+    <Compile Include="Models\Producto.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SERVICIO.cs">
+    <Compile Include="Models\Producto_Proveedor.cs">
+      <DependentUpon>SpaVehicular.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proveedor.cs">
+      <DependentUpon>SpaVehicular.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sede.cs">
+      <DependentUpon>SpaVehicular.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Servicio.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SpaVehicular.Context.cs">
@@ -246,7 +255,13 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VEHICULO_CLIENTE.cs">
+    <Compile Include="Models\Telefono_Cliente.cs">
+      <DependentUpon>SpaVehicular.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Telefono_Empleado.cs">
+      <DependentUpon>SpaVehicular.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vehiculo_Cliente.cs">
       <DependentUpon>SpaVehicular.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,8 +288,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\SpaVehicular.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SpaVehicular.Context.cs</LastGenOutput>
       <DependentUpon>SpaVehicular.edmx</DependentUpon>
+      <LastGenOutput>SpaVehicular.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\SpaVehicular.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

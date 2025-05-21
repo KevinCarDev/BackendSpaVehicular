@@ -4,56 +4,59 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="96143c272b0148849de4f66f73bef96d" Name="Diagram1">
-        <EntityTypeShape EntityType="SpaVehicularModel.CARGO" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.CATEGORIA_PRODUCTO" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.CATEGORIA_SERVICIO" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.CITA" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.CIUDAD" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.CLIENTE" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.DETALLE_FACTURA_PRODUCTO" Width="1.5" PointX="15.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.DETALLE_FACTURA_SERVICIO" Width="1.5" PointX="12.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.DETALLE_ORDEN_COMPRA" Width="1.5" PointX="18.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.EMPLEADO" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.FACTURA" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.INVENTARIO_SEDE" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.ORDEN_COMPRA" Width="1.5" PointX="13.5" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.PRECIO_SERVICIO" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.PRODUCTO" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.PRODUCTO_PROVEEDOR" Width="1.5" PointX="13.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.PROVEEDOR" Width="1.5" PointX="11.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.SEDE" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.SERVICIO" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpaVehicularModel.VEHICULO_CLIENTE" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
-        <AssociationConnector Association="SpaVehicularModel.FK__EMPLEADO__id_car__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__PRODUCTO__id_cat__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__SERVICIO__id_cat__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__CITA__id_cliente__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__CITA__id_sede__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__CITA__id_vehicul__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__FACTURA__id_cita__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__SEDE__id_ciudad__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__FACTURA__id_clie__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__VEHICULO___id_cl__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__DETALLE_F__id_fa__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__DETALLE_F__id_pr__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__DETALLE_F__id_fa__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__DETALLE_F__id_se__693CA210" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__DETALLE_O__id_or__74AE54BC" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__DETALLE_O__id_pr__75A278F5" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__EMPLEADO__id_sed__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__FACTURA__id_empl__656C112C" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__ORDEN_COM__id_em__71D1E811" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__FACTURA__id_sede__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__INVENTARI__id_pr__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__INVENTARI__id_se__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__ORDEN_COM__id_pr__6FE99F9F" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__ORDEN_COM__id_se__70DDC3D8" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__PRECIO_SE__id_se__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__PRECIO_SE__id_se__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__PRODUCTO___id_pr__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="SpaVehicularModel.FK__PRODUCTO___id_pr__52593CB8" ManuallyRouted="false" />
+      <Diagram DiagramId="c70563a6ade94272898ba0a89c5ce644" Name="Diagram1">
+        <EntityTypeShape EntityType="SpaVehicularModel.Categoria_Producto" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Categoria_Servicio" Width="1.5" PointX="8.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Cita" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Ciudad" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Cliente" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Departamento" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Detalle_Factura_Producto" Width="1.5" PointX="9.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Detalle_Factura_Servicio" Width="1.5" PointX="12.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Detalle_Orden_Compra" Width="1.5" PointX="9.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Direccion_Cliente" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Email_Cliente" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Email_Empleado" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Empleado" Width="1.5" PointX="10.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Factura" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Metodo_Pago" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Orden_Compra" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Perfil" Width="1.5" PointX="12.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Producto" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Producto_Proveedor" Width="1.5" PointX="12.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Proveedor" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Sede" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Servicio" Width="1.5" PointX="10.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.sysdiagram" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Telefono_Cliente" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Telefono_Empleado" Width="1.5" PointX="8.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpaVehicularModel.Vehiculo_Cliente" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Producto__Catego__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Servicio__Catego__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Cita__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Cita__Sede__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Ciudad__Departam__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Sede__Ciudad__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Cliente__Direcci__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Cliente__Email__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Cliente__Telefon__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Factura__Cliente__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Vehiculo___Docum__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Detalle_F__Factu__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Detalle_F__ID_Pr__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Detalle_F__Factu__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Detalle_F__ID_Se__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Detalle_O__Numer__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Empleado__Email__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Empleado__Sede__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Empleado__Telefo__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Perfil__ID_Emple__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Factura__Metodo___5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Factura__Sede__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Orden_Com__Prove__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Orden_Comp__Sede__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Producto___ID_Pr__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="SpaVehicularModel.FK__Producto___ID_Pr__76969D2E" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

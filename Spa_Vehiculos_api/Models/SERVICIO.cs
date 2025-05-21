@@ -12,25 +12,21 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SERVICIO
+    public partial class Servicio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SERVICIO()
+        public Servicio()
         {
-            this.DETALLE_FACTURA_SERVICIO = new HashSet<DETALLE_FACTURA_SERVICIO>();
-            this.PRECIO_SERVICIO = new HashSet<PRECIO_SERVICIO>();
+            this.Detalle_Factura_Servicio = new HashSet<Detalle_Factura_Servicio>();
         }
     
-        public int id_servicio { get; set; }
-        public Nullable<int> id_categoria_servicio { get; set; }
-        public string nombre_servicio { get; set; }
-        public string descripcion { get; set; }
-        public Nullable<int> duracion_estimada { get; set; }
+        public int ID_Servicio { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public int Categoria { get; set; }
     
-        public virtual CATEGORIA_SERVICIO CATEGORIA_SERVICIO { get; set; }
+        public virtual Categoria_Servicio Categoria_Servicio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_FACTURA_SERVICIO> DETALLE_FACTURA_SERVICIO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRECIO_SERVICIO> PRECIO_SERVICIO { get; set; }
+        public virtual ICollection<Detalle_Factura_Servicio> Detalle_Factura_Servicio { get; set; }
     }
 }

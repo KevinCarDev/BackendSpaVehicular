@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SpaVehicularModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categoria_Producto">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Categoria_Servicio">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="ID_Cita" />
+    </Key>
+    <Property Name="ID_Cita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="25" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="200" />
+    <Property Name="Fecha_Hora" Type="datetime" />
+    <Property Name="Vehiculo" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Cliente" Type="int" Nullable="false" />
+    <Property Name="Sede" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="ID_Ciudad" />
+    </Key>
+    <Property Name="ID_Ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Departamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Documento" />
+    </Key>
+    <Property Name="Documento" Type="int" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Direccion" Type="int" Nullable="false" />
+    <Property Name="Email" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="ID_Departamento" />
+    </Key>
+    <Property Name="ID_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Factura_Producto">
+    <Key>
+      <PropertyRef Name="ID_Producto" />
+      <PropertyRef Name="ID_DetProducto" />
+    </Key>
+    <Property Name="ID_Producto" Type="int" Nullable="false" />
+    <Property Name="ID_DetProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Subtotal" Type="money" />
+    <Property Name="Precio_Unitario" Type="money" />
+    <Property Name="Factura" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Factura_Servicio">
+    <Key>
+      <PropertyRef Name="ID_Servicio" />
+      <PropertyRef Name="ID_DetServicio" />
+    </Key>
+    <Property Name="ID_Servicio" Type="int" Nullable="false" />
+    <Property Name="ID_DetServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Subtotal" Type="money" />
+    <Property Name="Precio" Type="money" />
+    <Property Name="Factura" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Orden_Compra">
+    <Key>
+      <PropertyRef Name="Numero_Orden" />
+      <PropertyRef Name="ID_DetCompra" />
+    </Key>
+    <Property Name="Numero_Orden" Type="int" Nullable="false" />
+    <Property Name="ID_DetCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Impuesto" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Precio_Unitario" Type="money" />
+    <Property Name="Subtotal" Type="money" />
+  </EntityType>
+  <EntityType Name="Direccion_Cliente">
+    <Key>
+      <PropertyRef Name="ID_Direccion" />
+    </Key>
+    <Property Name="ID_Direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Email_Cliente">
+    <Key>
+      <PropertyRef Name="ID_Email" />
+    </Key>
+    <Property Name="ID_Email" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Email_Empleado">
+    <Key>
+      <PropertyRef Name="ID_Email" />
+    </Key>
+    <Property Name="ID_Email" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="ID_Empleado" />
+    </Key>
+    <Property Name="ID_Empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salario" Type="money" />
+    <Property Name="Fecha_Nacimiento" Type="date" />
+    <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Email" Type="int" Nullable="false" />
+    <Property Name="Sede" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="ID_Factura" />
+    </Key>
+    <Property Name="ID_Factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Emision" Type="date" Nullable="false" />
+    <Property Name="Estado_Pago" Type="nvarchar" MaxLength="25" />
+    <Property Name="Impuesto" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Descuento" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Total" Type="money" />
+    <Property Name="Sede" Type="int" Nullable="false" />
+    <Property Name="Cliente" Type="int" Nullable="false" />
+    <Property Name="Metodo_Pago" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Metodo_Pago">
+    <Key>
+      <PropertyRef Name="ID_MetPago" />
+    </Key>
+    <Property Name="ID_MetPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Metodo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Orden_Compra">
+    <Key>
+      <PropertyRef Name="Numero_Orden" />
+    </Key>
+    <Property Name="Numero_Orden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Fecha_Entrega" Type="date" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="25" />
+    <Property Name="Total" Type="money" />
+    <Property Name="Sede" Type="int" Nullable="false" />
+    <Property Name="Proveedor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="ID_Empleado" />
+      <PropertyRef Name="ID_Perfil" />
+    </Key>
+    <Property Name="ID_Empleado" Type="int" Nullable="false" />
+    <Property Name="ID_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ID_Producto" />
+    </Key>
+    <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto_Proveedor">
+    <Key>
+      <PropertyRef Name="ID_Producto" />
+      <PropertyRef Name="ID_Proveedor" />
+    </Key>
+    <Property Name="ID_Producto" Type="int" Nullable="false" />
+    <Property Name="ID_Proveedor" Type="int" Nullable="false" />
+    <Property Name="Tiempo_Entrega" Type="int" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Precio" Type="money" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="ID_Proveedor" />
+    </Key>
+    <Property Name="ID_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="10" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sede">
+    <Key>
+      <PropertyRef Name="ID_Sede" />
+    </Key>
+    <Property Name="ID_Sede" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hora_Apertura" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Hora_Cierre" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Ciudad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="ID_Servicio" />
+    </Key>
+    <Property Name="ID_Servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Telefono_Cliente">
+    <Key>
+      <PropertyRef Name="ID_Telefono" />
+    </Key>
+    <Property Name="ID_Telefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Telefono_Empleado">
+    <Key>
+      <PropertyRef Name="ID_Telefono" />
+    </Key>
+    <Property Name="ID_Telefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehiculo_Cliente">
+    <Key>
+      <PropertyRef Name="Documento" />
+      <PropertyRef Name="Matricula" />
+    </Key>
+    <Property Name="Documento" Type="int" Nullable="false" />
+    <Property Name="Matricula" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Marca" Type="nvarchar" MaxLength="50" />
+    <Property Name="Modelo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tipo_Vehiculo" Type="nvarchar" MaxLength="25" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK__Cita__5812160E">
+    <End Role="Vehiculo_Cliente" Type="Self.Vehiculo_Cliente" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo_Cliente">
+        <PropertyRef Name="Documento" />
+        <PropertyRef Name="Matricula" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="Cliente" />
+        <PropertyRef Name="Vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__Sede__59063A47">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="ID_Sede" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="Sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ciudad__Departam__398D8EEE">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="ID_Departamento" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__Direcci__5165187F">
+    <End Role="Direccion_Cliente" Type="Self.Direccion_Cliente" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion_Cliente">
+        <PropertyRef Name="ID_Direccion" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__Email__52593CB8">
+    <End Role="Email_Cliente" Type="Self.Email_Cliente" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Email_Cliente">
+        <PropertyRef Name="ID_Email" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__Telefon__5070F446">
+    <End Role="Telefono_Cliente" Type="Self.Telefono_Cliente" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telefono_Cliente">
+        <PropertyRef Name="ID_Telefono" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_F__Factu__6754599E">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Detalle_Factura_Servicio" Type="Self.Detalle_Factura_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="ID_Factura" />
+      </Principal>
+      <Dependent Role="Detalle_Factura_Servicio">
+        <PropertyRef Name="Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_F__Factu__6FE99F9F">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Detalle_Factura_Producto" Type="Self.Detalle_Factura_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="ID_Factura" />
+      </Principal>
+      <Dependent Role="Detalle_Factura_Producto">
+        <PropertyRef Name="Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_F__ID_Pr__70DDC3D8">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Detalle_Factura_Producto" Type="Self.Detalle_Factura_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="ID_Producto" />
+      </Principal>
+      <Dependent Role="Detalle_Factura_Producto">
+        <PropertyRef Name="ID_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_F__ID_Se__68487DD7">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="Detalle_Factura_Servicio" Type="Self.Detalle_Factura_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="ID_Servicio" />
+      </Principal>
+      <Dependent Role="Detalle_Factura_Servicio">
+        <PropertyRef Name="ID_Servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_O__Numer__7D439ABD">
+    <End Role="Orden_Compra" Type="Self.Orden_Compra" Multiplicity="1" />
+    <End Role="Detalle_Orden_Compra" Type="Self.Detalle_Orden_Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden_Compra">
+        <PropertyRef Name="Numero_Orden" />
+      </Principal>
+      <Dependent Role="Detalle_Orden_Compra">
+        <PropertyRef Name="Numero_Orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__Email__440B1D61">
+    <End Role="Email_Empleado" Type="Self.Email_Empleado" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Email_Empleado">
+        <PropertyRef Name="ID_Email" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__Sede__44FF419A">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="ID_Sede" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__Telefo__4316F928">
+    <End Role="Telefono_Empleado" Type="Self.Telefono_Empleado" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telefono_Empleado">
+        <PropertyRef Name="ID_Telefono" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__Cliente__5EBF139D">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Documento" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__Metodo___5FB337D6">
+    <End Role="Metodo_Pago" Type="Self.Metodo_Pago" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metodo_Pago">
+        <PropertyRef Name="ID_MetPago" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="Metodo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__Sede__5DCAEF64">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="ID_Sede" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="Sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden_Com__Prove__7A672E12">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Orden_Compra" Type="Self.Orden_Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="ID_Proveedor" />
+      </Principal>
+      <Dependent Role="Orden_Compra">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden_Comp__Sede__797309D9">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="1" />
+    <End Role="Orden_Compra" Type="Self.Orden_Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="ID_Sede" />
+      </Principal>
+      <Dependent Role="Orden_Compra">
+        <PropertyRef Name="Sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Perfil__ID_Emple__47DBAE45">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="ID_Empleado" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto___ID_Pr__75A278F5">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Producto_Proveedor" Type="Self.Producto_Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="ID_Producto" />
+      </Principal>
+      <Dependent Role="Producto_Proveedor">
+        <PropertyRef Name="ID_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto___ID_Pr__76969D2E">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Producto_Proveedor" Type="Self.Producto_Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="ID_Proveedor" />
+      </Principal>
+      <Dependent Role="Producto_Proveedor">
+        <PropertyRef Name="ID_Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__Catego__6D0D32F4">
+    <End Role="Categoria_Producto" Type="Self.Categoria_Producto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Producto">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sede__Ciudad__3C69FB99">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Sede" Type="Self.Sede" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="ID_Ciudad" />
+      </Principal>
+      <Dependent Role="Sede">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Servicio__Catego__6477ECF3">
+    <End Role="Categoria_Servicio" Type="Self.Categoria_Servicio" Multiplicity="1" />
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Servicio">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehiculo___Docum__5535A963">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Vehiculo_Cliente" Type="Self.Vehiculo_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Documento" />
+      </Principal>
+      <Dependent Role="Vehiculo_Cliente">
+        <PropertyRef Name="Documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SpaVehicularModelStoreContainer">
+    <EntitySet Name="Categoria_Producto" EntityType="Self.Categoria_Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria_Servicio" EntityType="Self.Categoria_Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Factura_Producto" EntityType="Self.Detalle_Factura_Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Factura_Servicio" EntityType="Self.Detalle_Factura_Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Orden_Compra" EntityType="Self.Detalle_Orden_Compra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Direccion_Cliente" EntityType="Self.Direccion_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email_Cliente" EntityType="Self.Email_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email_Empleado" EntityType="Self.Email_Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metodo_Pago" EntityType="Self.Metodo_Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orden_Compra" EntityType="Self.Orden_Compra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto_Proveedor" EntityType="Self.Producto_Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefono_Cliente" EntityType="Self.Telefono_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefono_Empleado" EntityType="Self.Telefono_Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehiculo_Cliente" EntityType="Self.Vehiculo_Cliente" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cita__5812160E" Association="Self.FK__Cita__5812160E">
+      <End Role="Vehiculo_Cliente" EntitySet="Vehiculo_Cliente" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__Sede__59063A47" Association="Self.FK__Cita__Sede__59063A47">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ciudad__Departam__398D8EEE" Association="Self.FK__Ciudad__Departam__398D8EEE">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__Direcci__5165187F" Association="Self.FK__Cliente__Direcci__5165187F">
+      <End Role="Direccion_Cliente" EntitySet="Direccion_Cliente" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__Email__52593CB8" Association="Self.FK__Cliente__Email__52593CB8">
+      <End Role="Email_Cliente" EntitySet="Email_Cliente" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__Telefon__5070F446" Association="Self.FK__Cliente__Telefon__5070F446">
+      <End Role="Telefono_Cliente" EntitySet="Telefono_Cliente" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_F__Factu__6754599E" Association="Self.FK__Detalle_F__Factu__6754599E">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Detalle_Factura_Servicio" EntitySet="Detalle_Factura_Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_F__Factu__6FE99F9F" Association="Self.FK__Detalle_F__Factu__6FE99F9F">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Detalle_Factura_Producto" EntitySet="Detalle_Factura_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_F__ID_Pr__70DDC3D8" Association="Self.FK__Detalle_F__ID_Pr__70DDC3D8">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Detalle_Factura_Producto" EntitySet="Detalle_Factura_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_F__ID_Se__68487DD7" Association="Self.FK__Detalle_F__ID_Se__68487DD7">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="Detalle_Factura_Servicio" EntitySet="Detalle_Factura_Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_O__Numer__7D439ABD" Association="Self.FK__Detalle_O__Numer__7D439ABD">
+      <End Role="Orden_Compra" EntitySet="Orden_Compra" />
+      <End Role="Detalle_Orden_Compra" EntitySet="Detalle_Orden_Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__Email__440B1D61" Association="Self.FK__Empleado__Email__440B1D61">
+      <End Role="Email_Empleado" EntitySet="Email_Empleado" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__Sede__44FF419A" Association="Self.FK__Empleado__Sede__44FF419A">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__Telefo__4316F928" Association="Self.FK__Empleado__Telefo__4316F928">
+      <End Role="Telefono_Empleado" EntitySet="Telefono_Empleado" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__Cliente__5EBF139D" Association="Self.FK__Factura__Cliente__5EBF139D">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__Metodo___5FB337D6" Association="Self.FK__Factura__Metodo___5FB337D6">
+      <End Role="Metodo_Pago" EntitySet="Metodo_Pago" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__Sede__5DCAEF64" Association="Self.FK__Factura__Sede__5DCAEF64">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden_Com__Prove__7A672E12" Association="Self.FK__Orden_Com__Prove__7A672E12">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Orden_Compra" EntitySet="Orden_Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden_Comp__Sede__797309D9" Association="Self.FK__Orden_Comp__Sede__797309D9">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Orden_Compra" EntitySet="Orden_Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Perfil__ID_Emple__47DBAE45" Association="Self.FK__Perfil__ID_Emple__47DBAE45">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Perfil" EntitySet="Perfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto___ID_Pr__75A278F5" Association="Self.FK__Producto___ID_Pr__75A278F5">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Producto_Proveedor" EntitySet="Producto_Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto___ID_Pr__76969D2E" Association="Self.FK__Producto___ID_Pr__76969D2E">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Producto_Proveedor" EntitySet="Producto_Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__Catego__6D0D32F4" Association="Self.FK__Producto__Catego__6D0D32F4">
+      <End Role="Categoria_Producto" EntitySet="Categoria_Producto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sede__Ciudad__3C69FB99" Association="Self.FK__Sede__Ciudad__3C69FB99">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Sede" EntitySet="Sede" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Servicio__Catego__6477ECF3" Association="Self.FK__Servicio__Catego__6477ECF3">
+      <End Role="Categoria_Servicio" EntitySet="Categoria_Servicio" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehiculo___Docum__5535A963" Association="Self.FK__Vehiculo___Docum__5535A963">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Vehiculo_Cliente" EntitySet="Vehiculo_Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

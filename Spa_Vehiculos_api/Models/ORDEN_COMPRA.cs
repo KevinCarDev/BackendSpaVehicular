@@ -12,30 +12,25 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ORDEN_COMPRA
+    public partial class Orden_Compra
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ORDEN_COMPRA()
+        public Orden_Compra()
         {
-            this.DETALLE_ORDEN_COMPRA = new HashSet<DETALLE_ORDEN_COMPRA>();
+            this.Detalle_Orden_Compra = new HashSet<Detalle_Orden_Compra>();
         }
     
-        public int id_orden_compra { get; set; }
-        public Nullable<int> id_proveedor { get; set; }
-        public Nullable<int> id_sede { get; set; }
-        public Nullable<int> id_empleado { get; set; }
-        public string numero_orden { get; set; }
-        public System.DateTime fecha_orden { get; set; }
-        public Nullable<System.DateTime> fecha_entrega_esperada { get; set; }
-        public string estado_orden { get; set; }
-        public decimal subtotal { get; set; }
-        public decimal impuesto { get; set; }
-        public decimal total { get; set; }
+        public int Numero_Orden { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<System.DateTime> Fecha_Entrega { get; set; }
+        public string Estado { get; set; }
+        public Nullable<decimal> Total { get; set; }
+        public int Sede { get; set; }
+        public int Proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_ORDEN_COMPRA> DETALLE_ORDEN_COMPRA { get; set; }
-        public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual PROVEEDOR PROVEEDOR { get; set; }
-        public virtual SEDE SEDE { get; set; }
+        public virtual ICollection<Detalle_Orden_Compra> Detalle_Orden_Compra { get; set; }
+        public virtual Proveedor Proveedor1 { get; set; }
+        public virtual Sede Sede1 { get; set; }
     }
 }

@@ -12,16 +12,16 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DETALLE_FACTURA_PRODUCTO
+    public partial class Detalle_Factura_Producto
     {
-        public int id_detalle_producto { get; set; }
-        public Nullable<int> id_factura { get; set; }
-        public Nullable<int> id_producto { get; set; }
-        public int cantidad { get; set; }
-        public decimal precio_unitario { get; set; }
-        public decimal subtotal { get; set; }
+        public int ID_Producto { get; set; }
+        public int ID_DetProducto { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public Nullable<decimal> Subtotal { get; set; }
+        public Nullable<decimal> Precio_Unitario { get; set; }
+        public int Factura { get; set; }
     
-        public virtual FACTURA FACTURA { get; set; }
-        public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual Factura Factura1 { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

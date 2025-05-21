@@ -12,26 +12,17 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CITA
+    public partial class Cita
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CITA()
-        {
-            this.FACTURAs = new HashSet<FACTURA>();
-        }
+        public int ID_Cita { get; set; }
+        public string Estado { get; set; }
+        public string Observaciones { get; set; }
+        public Nullable<System.DateTime> Fecha_Hora { get; set; }
+        public string Vehiculo { get; set; }
+        public int Cliente { get; set; }
+        public int Sede { get; set; }
     
-        public int id_cita { get; set; }
-        public Nullable<int> id_cliente { get; set; }
-        public Nullable<int> id_vehiculo { get; set; }
-        public Nullable<int> id_sede { get; set; }
-        public System.DateTime fecha_hora { get; set; }
-        public string estado_cita { get; set; }
-        public string notas { get; set; }
-    
-        public virtual CLIENTE CLIENTE { get; set; }
-        public virtual SEDE SEDE { get; set; }
-        public virtual VEHICULO_CLIENTE VEHICULO_CLIENTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURA> FACTURAs { get; set; }
+        public virtual Vehiculo_Cliente Vehiculo_Cliente { get; set; }
+        public virtual Sede Sede1 { get; set; }
     }
 }

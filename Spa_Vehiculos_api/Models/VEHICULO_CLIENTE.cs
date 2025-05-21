@@ -9,29 +9,30 @@
 
 namespace Spa_Vehiculos_api.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class VEHICULO_CLIENTE
+    public partial class Vehiculo_Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VEHICULO_CLIENTE()
+        public Vehiculo_Cliente()
         {
-            this.CITAs = new HashSet<CITA>();
+            this.Citas = new HashSet<Cita>();
         }
     
-        public int id_vehiculo { get; set; }
-        public Nullable<int> id_cliente { get; set; }
-        public string matricula { get; set; }
-        public string marca { get; set; }
-        public string modelo { get; set; }
-        public Nullable<int> anio { get; set; }
-        public string color { get; set; }
-        public string tipo_vehiculo { get; set; }
-        public string observaciones { get; set; }
-    
+        public int Documento { get; set; }
+        public string Matricula { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Color { get; set; }
+        public string Tipo_Vehiculo { get; set; }
+        public string Observaciones { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CITA> CITAs { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ICollection<Cita> Citas { get; set; }
+        [JsonIgnore]
+        public virtual Cliente Cliente { get; set; }
     }
 }

@@ -12,36 +12,31 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FACTURA
+    public partial class Factura
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FACTURA()
+        public Factura()
         {
-            this.DETALLE_FACTURA_PRODUCTO = new HashSet<DETALLE_FACTURA_PRODUCTO>();
-            this.DETALLE_FACTURA_SERVICIO = new HashSet<DETALLE_FACTURA_SERVICIO>();
+            this.Detalle_Factura_Producto = new HashSet<Detalle_Factura_Producto>();
+            this.Detalle_Factura_Servicio = new HashSet<Detalle_Factura_Servicio>();
         }
     
-        public int id_factura { get; set; }
-        public Nullable<int> id_cita { get; set; }
-        public Nullable<int> id_cliente { get; set; }
-        public Nullable<int> id_sede { get; set; }
-        public Nullable<int> id_empleado { get; set; }
-        public string numero_factura { get; set; }
-        public System.DateTime fecha_emision { get; set; }
-        public decimal subtotal { get; set; }
-        public decimal impuesto { get; set; }
-        public Nullable<decimal> descuento { get; set; }
-        public decimal total { get; set; }
-        public string metodo_pago { get; set; }
-        public string estado_pago { get; set; }
+        public int ID_Factura { get; set; }
+        public System.DateTime Fecha_Emision { get; set; }
+        public string Estado_Pago { get; set; }
+        public decimal Impuesto { get; set; }
+        public Nullable<decimal> Descuento { get; set; }
+        public Nullable<decimal> Total { get; set; }
+        public int Sede { get; set; }
+        public int Cliente { get; set; }
+        public int Metodo_Pago { get; set; }
     
-        public virtual CITA CITA { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual Cliente Cliente1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_FACTURA_PRODUCTO> DETALLE_FACTURA_PRODUCTO { get; set; }
+        public virtual ICollection<Detalle_Factura_Producto> Detalle_Factura_Producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_FACTURA_SERVICIO> DETALLE_FACTURA_SERVICIO { get; set; }
-        public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual SEDE SEDE { get; set; }
+        public virtual ICollection<Detalle_Factura_Servicio> Detalle_Factura_Servicio { get; set; }
+        public virtual Metodo_Pago Metodo_Pago1 { get; set; }
+        public virtual Sede Sede1 { get; set; }
     }
 }

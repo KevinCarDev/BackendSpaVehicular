@@ -15,7 +15,7 @@ namespace Spa_Vehiculos_api.Controllers
     {
         [HttpGet]
         [Route("ConsultarTodos")]
-        public List<VEHICULO_CLIENTE> ConsultarTodos()
+        public List<Vehiculo_Cliente> ConsultarTodos()
         {
             var vehiculoCliente = new clsVehiculoCliente();
             return vehiculoCliente.ConsultarTodos();
@@ -23,7 +23,7 @@ namespace Spa_Vehiculos_api.Controllers
 
         [HttpGet]
         [Route("ConsultarXCliente")]
-        public List<VEHICULO_CLIENTE> ConsultarXCliente(int id_cliente)
+        public List<Vehiculo_Cliente> ConsultarXCliente(int id_cliente)
         {
             var vehiculoCliente = new clsVehiculoCliente();
             return vehiculoCliente.ConsultarXCliente(id_cliente);
@@ -31,7 +31,7 @@ namespace Spa_Vehiculos_api.Controllers
 
         [HttpGet]
         [Route("ConsultarXMatricula")]
-        public List<VEHICULO_CLIENTE> ConsultarXMatricula(string matricula)
+        public List<Vehiculo_Cliente> ConsultarXMatricula(string matricula)
         {
             var vehiculoCliente = new clsVehiculoCliente();
             return vehiculoCliente.ConsultarXMatricula(matricula);
@@ -39,7 +39,7 @@ namespace Spa_Vehiculos_api.Controllers
 
         [HttpPost]
         [Route("Insertar")]
-        public string Insertar([FromBody] VEHICULO_CLIENTE vehiculoCliente)
+        public string Insertar([FromBody] Vehiculo_Cliente vehiculoCliente)
         {
             var vehiculoClienteClass = new clsVehiculoCliente();
             vehiculoClienteClass.vehiculoCliente = vehiculoCliente;
@@ -48,7 +48,7 @@ namespace Spa_Vehiculos_api.Controllers
 
         [HttpPut]
         [Route("Actualizar")]
-        public string Actualizar([FromBody] VEHICULO_CLIENTE vehiculoCliente)
+        public string Actualizar([FromBody] Vehiculo_Cliente vehiculoCliente)
         {
             var vehiculoClienteClass = new clsVehiculoCliente();
             vehiculoClienteClass.vehiculoCliente = vehiculoCliente;
@@ -57,10 +57,10 @@ namespace Spa_Vehiculos_api.Controllers
 
         [HttpDelete]
         [Route("Eliminar")]
-        public string Eliminar(int id_vehiculo)
+        public string Eliminar(string Matricula)
         {
             var vehiculoClienteClass = new clsVehiculoCliente();
-            return vehiculoClienteClass.Eliminar(id_vehiculo);
+            return vehiculoClienteClass.Eliminar(Matricula);
         }
     }
 }

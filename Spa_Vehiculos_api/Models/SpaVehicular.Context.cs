@@ -25,26 +25,31 @@ namespace Spa_Vehiculos_api.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CARGO> CARGOes { get; set; }
-        public virtual DbSet<CATEGORIA_PRODUCTO> CATEGORIA_PRODUCTO { get; set; }
-        public virtual DbSet<CATEGORIA_SERVICIO> CATEGORIA_SERVICIO { get; set; }
-        public virtual DbSet<CITA> CITAs { get; set; }
-        public virtual DbSet<CIUDAD> CIUDADs { get; set; }
-        public virtual DbSet<CLIENTE> CLIENTEs { get; set; }
-        public virtual DbSet<DETALLE_FACTURA_PRODUCTO> DETALLE_FACTURA_PRODUCTO { get; set; }
-        public virtual DbSet<DETALLE_FACTURA_SERVICIO> DETALLE_FACTURA_SERVICIO { get; set; }
-        public virtual DbSet<DETALLE_ORDEN_COMPRA> DETALLE_ORDEN_COMPRA { get; set; }
-        public virtual DbSet<EMPLEADO> EMPLEADOes { get; set; }
-        public virtual DbSet<FACTURA> FACTURAs { get; set; }
-        public virtual DbSet<INVENTARIO_SEDE> INVENTARIO_SEDE { get; set; }
-        public virtual DbSet<ORDEN_COMPRA> ORDEN_COMPRA { get; set; }
-        public virtual DbSet<PRECIO_SERVICIO> PRECIO_SERVICIO { get; set; }
-        public virtual DbSet<PRODUCTO> PRODUCTOes { get; set; }
-        public virtual DbSet<PRODUCTO_PROVEEDOR> PRODUCTO_PROVEEDOR { get; set; }
-        public virtual DbSet<PROVEEDOR> PROVEEDORs { get; set; }
-        public virtual DbSet<SEDE> SEDEs { get; set; }
-        public virtual DbSet<SERVICIO> SERVICIOs { get; set; }
+        public virtual DbSet<Categoria_Producto> Categoria_Producto { get; set; }
+        public virtual DbSet<Categoria_Servicio> Categoria_Servicio { get; set; }
+        public virtual DbSet<Cita> Citas { get; set; }
+        public virtual DbSet<Ciudad> Ciudads { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Departamento> Departamentoes { get; set; }
+        public virtual DbSet<Detalle_Factura_Producto> Detalle_Factura_Producto { get; set; }
+        public virtual DbSet<Detalle_Factura_Servicio> Detalle_Factura_Servicio { get; set; }
+        public virtual DbSet<Detalle_Orden_Compra> Detalle_Orden_Compra { get; set; }
+        public virtual DbSet<Direccion_Cliente> Direccion_Cliente { get; set; }
+        public virtual DbSet<Email_Cliente> Email_Cliente { get; set; }
+        public virtual DbSet<Email_Empleado> Email_Empleado { get; set; }
+        public virtual DbSet<Empleado> Empleadoes { get; set; }
+        public virtual DbSet<Factura> Facturas { get; set; }
+        public virtual DbSet<Metodo_Pago> Metodo_Pago { get; set; }
+        public virtual DbSet<Orden_Compra> Orden_Compra { get; set; }
+        public virtual DbSet<Perfil> Perfils { get; set; }
+        public virtual DbSet<Producto> Productoes { get; set; }
+        public virtual DbSet<Producto_Proveedor> Producto_Proveedor { get; set; }
+        public virtual DbSet<Proveedor> Proveedors { get; set; }
+        public virtual DbSet<Sede> Sedes { get; set; }
+        public virtual DbSet<Servicio> Servicios { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<VEHICULO_CLIENTE> VEHICULO_CLIENTE { get; set; }
+        public virtual DbSet<Telefono_Cliente> Telefono_Cliente { get; set; }
+        public virtual DbSet<Telefono_Empleado> Telefono_Empleado { get; set; }
+        public virtual DbSet<Vehiculo_Cliente> Vehiculo_Cliente { get; set; }
     }
 }

@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\controllers\\vehiculoclientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|c:\\users\\carde\\onedrive\\escritorio\\desarrollo de sofware\\aplicaciones web\\spa_vehiculos_api\\spa_vehiculos_api\\clases\\clsvehiculocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\spa_vehiculos_api\\clases\\clsvehiculocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\clases\\clsvehiculocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\spa_vehiculos_api\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\spa_vehiculos_api\\clases\\clsproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\clases\\clsproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|c:\\users\\carde\\onedrive\\escritorio\\desarrollo de sofware\\aplicaciones web\\spa_vehiculos_api\\spa_vehiculos_api\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|c:\\users\\carde\\onedrive\\escritorio\\desarrollo de sofware\\aplicaciones web\\spa_vehiculos_api\\spa_vehiculos_api\\models\\vehiculo_cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\models\\vehiculo_cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|c:\\users\\carde\\onedrive\\escritorio\\desarrollo de sofware\\aplicaciones web\\spa_vehiculos_api\\spa_vehiculos_api\\models\\spavehicular.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{BD07B78F-4B97-4B4C-B740-3F64CC251046}|Spa_Vehiculos_api\\Spa_Vehiculos_api.csproj|solutionrelative:spa_vehiculos_api\\models\\spavehicular.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +42,15 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -42,39 +58,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VehiculoClienteController.cs",
-              "DocumentMoniker": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
-              "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
-              "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
-              "RelativeToolTip": "Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAAwD4AAAA+AAAA",
+              "DocumentIndex": 4,
+              "Title": "Vehiculo_Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Models\\Vehiculo_Cliente.cs",
+              "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Models\\Vehiculo_Cliente.cs",
+              "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Models\\Vehiculo_Cliente.cs",
+              "RelativeToolTip": "Spa_Vehiculos_api\\Models\\Vehiculo_Cliente.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAA0wCQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T20:05:51.624Z",
+              "WhenOpened": "2025-05-21T20:49:49.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "SpaVehicular.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Models\\SpaVehicular.edmx",
+              "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Models\\SpaVehicular.edmx",
+              "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Models\\SpaVehicular.edmx [Diagram1]",
+              "RelativeToolTip": "Spa_Vehiculos_api\\Models\\SpaVehicular.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-05-21T19:37:05.508Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Controllers\\ProductosController.cs",
               "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Controllers\\ProductosController.cs",
               "RelativeToolTip": "Spa_Vehiculos_api\\Controllers\\ProductosController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAIwBEAAAAkAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAmwBcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T18:46:03.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "clsProducto.cs",
               "DocumentMoniker": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Clases\\clsProducto.cs",
               "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Clases\\clsProducto.cs",
               "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Clases\\clsProducto.cs",
               "RelativeToolTip": "Spa_Vehiculos_api\\Clases\\clsProducto.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAABYAAAAAAAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAWwEEAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T18:41:15.661Z",
               "EditorCaption": ""
@@ -87,9 +115,22 @@
               "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Clases\\clsVehiculoCliente.cs",
               "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Clases\\clsVehiculoCliente.cs",
               "RelativeToolTip": "Spa_Vehiculos_api\\Clases\\clsVehiculoCliente.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAswFQAAAAJAAAA",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAEwEUAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T19:25:33.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VehiculoClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
+              "RelativeDocumentMoniker": "Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
+              "ToolTip": "C:\\Users\\carde\\OneDrive\\Escritorio\\Desarrollo de Sofware\\Aplicaciones web\\Spa_Vehiculos_api\\Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
+              "RelativeToolTip": "Spa_Vehiculos_api\\Controllers\\VehiculoClienteController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAewDoAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T20:05:18.378Z",
               "EditorCaption": ""
             }
           ]

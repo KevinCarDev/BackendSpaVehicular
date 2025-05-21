@@ -10,12 +10,12 @@ namespace Spa_Vehiculos_api.Clases
     public class clsVehiculoCliente
     {
         private SpaVehicularEntities dbSpaVehicular = new SpaVehicularEntities();
-        public VEHICULO_CLIENTE vehiculoCliente { get; set; }
+        public Vehiculo_Cliente vehiculoCliente { get; set; }
         public string Insertar()
         {
             try
             {
-                dbSpaVehicular.VEHICULO_CLIENTE.Add(vehiculoCliente);
+                dbSpaVehicular.Vehiculo_Cliente.Add(vehiculoCliente);
                 dbSpaVehicular.SaveChanges();
                 return "Vehículo cliente insertado correctamente";
             }
@@ -29,12 +29,12 @@ namespace Spa_Vehiculos_api.Clases
         {
             try
             {
-                VEHICULO_CLIENTE vehiculo = Consultar(vehiculoCliente.id_vehiculo);
+                Vehiculo_Cliente vehiculo = Consultar(vehiculoCliente.Matricula);
                 if (vehiculo == null)
                 {
                     return "No se encontró el vehículo cliente";
                 }
-                dbSpaVehicular.VEHICULO_CLIENTE.AddOrUpdate(vehiculoCliente);
+                dbSpaVehicular.Vehiculo_Cliente.AddOrUpdate(vehiculoCliente);
                 dbSpaVehicular.SaveChanges();
                 return "Vehículo cliente actualizado correctamente";
             }
@@ -44,37 +44,37 @@ namespace Spa_Vehiculos_api.Clases
             }
         }
 
-        public VEHICULO_CLIENTE Consultar(int id_vehiculo)
+        public Vehiculo_Cliente Consultar(string Matricula)
         {
-            VEHICULO_CLIENTE vehiculo = dbSpaVehicular.VEHICULO_CLIENTE.FirstOrDefault(v => v.id_vehiculo == id_vehiculo);
+            Vehiculo_Cliente vehiculo = dbSpaVehicular.Vehiculo_Cliente.FirstOrDefault(v => v.Matricula == Matricula);
             return vehiculo;
         }
 
-        public List<VEHICULO_CLIENTE> ConsultarTodos()
+        public List<Vehiculo_Cliente> ConsultarTodos()
         {
-            return dbSpaVehicular.VEHICULO_CLIENTE.ToList();
+            return dbSpaVehicular.Vehiculo_Cliente.ToList();
         }
 
-        public List<VEHICULO_CLIENTE> ConsultarXCliente(int id_cliente)
+        public List<Vehiculo_Cliente> ConsultarXCliente(int Documento)
         {
-            return dbSpaVehicular.VEHICULO_CLIENTE.Where(v => v.id_cliente == id_cliente).ToList();
+            return dbSpaVehicular.Vehiculo_Cliente.Where(v => v.Documento == Documento).ToList();
         }
 
-        public List<VEHICULO_CLIENTE> ConsultarXMatricula(string matricula)
+        public List<Vehiculo_Cliente> ConsultarXMatricula(string Matricula)
         {
-            return dbSpaVehicular.VEHICULO_CLIENTE.Where(m => m.matricula == matricula).ToList();
+            return dbSpaVehicular.Vehiculo_Cliente.Where(m => m.Matricula == Matricula).ToList();
         }
 
-        public string Eliminar(int id_vehiculo)
+        public string Eliminar(string Matricula)
         {
             try
             {
-                VEHICULO_CLIENTE vehiculo = Consultar(id_vehiculo);
+                Vehiculo_Cliente vehiculo = Consultar(Matricula);
                 if (vehiculo == null)
                 {
                     return "No se encontró el vehículo cliente";
                 }
-                dbSpaVehicular.VEHICULO_CLIENTE.Remove(vehiculo);
+                dbSpaVehicular.Vehiculo_Cliente.Remove(vehiculo);
                 dbSpaVehicular.SaveChanges();
                 return "Vehículo cliente eliminado correctamente";
             }

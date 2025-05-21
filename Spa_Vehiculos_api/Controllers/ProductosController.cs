@@ -15,39 +15,33 @@ namespace Spa_Vehiculos_api.Controllers
     {
         [HttpGet]
         [Route("ConsultarTodos")]
-        public List<PRODUCTO> ConsultarTodos()
+        public List<Producto> ConsultarTodos()
         {
             clsProducto Producto = new clsProducto();
             return Producto.ConsultarTodos();
         }
+
         [HttpGet]
-        [Route("Consultar")]
-        public PRODUCTO Consultar(int CodigoProducto)
+        [Route("ConsultarXId")]
+        public List<Producto> ConsultarXId(int Id)
         {
-            clsProducto Producto = new clsProducto();
-            return Producto.Consultar(CodigoProducto);
-        }
-        [HttpGet]
-        [Route("ConsultarXTipoProducto")]
-        public List<PRODUCTO> ConsultarXTipoProducto(int TipoProducto)
-        {
-            clsProducto Producto = new clsProducto();
-            return Producto.ConsultarXTipo(TipoProducto);
+            var Producto = new clsProducto();
+            return Producto.ConsultarXId(Id);
         }
         [HttpPost]
         [Route("Insertar")]
-        public string Insertar([FromBody] PRODUCTO producto)
+        public string Insertar([FromBody] Producto producto)
         {
-            clsProducto Producto = new clsProducto();
-            Producto.producto = producto;
+            var Producto = new clsProducto();
+            Producto.Producto = producto;
             return Producto.Insertar();
         }
         [HttpPut]
         [Route("Actualizar")]
-        public string Actualizar([FromBody] PRODUCTO producto)
+        public string Actualizar([FromBody] Producto producto)
         {
             clsProducto Producto = new clsProducto();
-            Producto.producto = producto;
+            Producto.Producto = producto;
             return Producto.Actualizar();
         }
         [HttpDelete]

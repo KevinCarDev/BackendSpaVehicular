@@ -12,17 +12,15 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PRODUCTO_PROVEEDOR
+    public partial class Producto_Proveedor
     {
-        public int id_producto_proveedor { get; set; }
-        public Nullable<int> id_producto { get; set; }
-        public Nullable<int> id_proveedor { get; set; }
-        public Nullable<decimal> precio_compra { get; set; }
-        public Nullable<int> tiempo_entrega { get; set; }
-        public Nullable<int> cantidad_minima { get; set; }
-        public Nullable<bool> es_proveedor_principal { get; set; }
+        public int ID_Producto { get; set; }
+        public int ID_Proveedor { get; set; }
+        public Nullable<int> Tiempo_Entrega { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public Nullable<decimal> Precio { get; set; }
     
-        public virtual PRODUCTO PRODUCTO { get; set; }
-        public virtual PROVEEDOR PROVEEDOR { get; set; }
+        public virtual Producto Producto { get; set; }
+        public virtual Proveedor Proveedor { get; set; }
     }
 }

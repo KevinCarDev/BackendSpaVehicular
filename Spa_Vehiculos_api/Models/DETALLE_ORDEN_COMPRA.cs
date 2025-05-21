@@ -12,16 +12,15 @@ namespace Spa_Vehiculos_api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DETALLE_ORDEN_COMPRA
+    public partial class Detalle_Orden_Compra
     {
-        public int id_detalle_orden { get; set; }
-        public Nullable<int> id_orden_compra { get; set; }
-        public Nullable<int> id_producto { get; set; }
-        public int cantidad { get; set; }
-        public decimal precio_unitario { get; set; }
-        public decimal subtotal { get; set; }
+        public int Numero_Orden { get; set; }
+        public int ID_DetCompra { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public decimal Impuesto { get; set; }
+        public Nullable<decimal> Precio_Unitario { get; set; }
+        public Nullable<decimal> Subtotal { get; set; }
     
-        public virtual ORDEN_COMPRA ORDEN_COMPRA { get; set; }
-        public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual Orden_Compra Orden_Compra { get; set; }
     }
 }

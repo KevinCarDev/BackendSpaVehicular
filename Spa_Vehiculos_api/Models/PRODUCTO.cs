@@ -9,34 +9,31 @@
 
 namespace Spa_Vehiculos_api.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class PRODUCTO
+    public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUCTO()
+        public Producto()
         {
-            this.DETALLE_FACTURA_PRODUCTO = new HashSet<DETALLE_FACTURA_PRODUCTO>();
-            this.DETALLE_ORDEN_COMPRA = new HashSet<DETALLE_ORDEN_COMPRA>();
-            this.INVENTARIO_SEDE = new HashSet<INVENTARIO_SEDE>();
-            this.PRODUCTO_PROVEEDOR = new HashSet<PRODUCTO_PROVEEDOR>();
+            this.Detalle_Factura_Producto = new HashSet<Detalle_Factura_Producto>();
+            this.Producto_Proveedor = new HashSet<Producto_Proveedor>();
         }
     
-        public int id_producto { get; set; }
-        public Nullable<int> id_categoria_producto { get; set; }
-        public string nombre_producto { get; set; }
-        public string descripcion { get; set; }
-        public string unidad_medida { get; set; }
-    
-        public virtual CATEGORIA_PRODUCTO CATEGORIA_PRODUCTO { get; set; }
+        public int ID_Producto { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public int Categoria { get; set; }
+
+        [JsonIgnore]
+        public virtual Categoria_Producto Categoria_Producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_FACTURA_PRODUCTO> DETALLE_FACTURA_PRODUCTO { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Detalle_Factura_Producto> Detalle_Factura_Producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_ORDEN_COMPRA> DETALLE_ORDEN_COMPRA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INVENTARIO_SEDE> INVENTARIO_SEDE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCTO_PROVEEDOR> PRODUCTO_PROVEEDOR { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Producto_Proveedor> Producto_Proveedor { get; set; }
     }
 }
