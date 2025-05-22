@@ -42,6 +42,13 @@ namespace Spa_Vehiculos_api.Clases
                 return "Error al actualizar el empleado: " + ex.Message;
             }
         }
+
+        public List<Empleado> ConsultarTodos()
+        {
+            return dbSpaVehicular.Empleadoes
+                .OrderBy(p => p.Nombres)
+                .ToList();
+        }
         public Empleado Consultar(int documento)
         {
             Empleado clien = dbSpaVehicular.Empleadoes.FirstOrDefault(e => e.ID_Empleado == documento);

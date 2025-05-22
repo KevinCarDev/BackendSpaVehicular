@@ -10,9 +10,17 @@ using System.Web.Http;
 namespace Spa_Vehiculos_api.Controllers
 {
     [RoutePrefix("api/Empleado")]
-    [Authorize]
+    //[Authorize]
     public class EmpleadoController : ApiController
     {
+        [HttpGet]
+        [Route("ConsultarTodos")]
+        public List<Empleado> ConsultarTodos()
+        {
+            var Empleado = new clsEmpleado();
+            return Empleado.ConsultarTodos();
+        }
+
         [HttpGet]
         [Route("Consultar")]
         public Empleado Consultar(int id_Empleado)

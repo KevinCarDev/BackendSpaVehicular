@@ -9,6 +9,7 @@
 
 namespace Spa_Vehiculos_api.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -27,12 +28,17 @@ namespace Spa_Vehiculos_api.Models
         public int Telefono { get; set; }
         public int Direccion { get; set; }
         public int Email { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Direccion_Cliente Direccion_Cliente { get; set; }
+        [JsonIgnore]
         public virtual Email_Cliente Email_Cliente { get; set; }
+        [JsonIgnore]
         public virtual Telefono_Cliente Telefono_Cliente { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehiculo_Cliente> Vehiculo_Cliente { get; set; }
     }
