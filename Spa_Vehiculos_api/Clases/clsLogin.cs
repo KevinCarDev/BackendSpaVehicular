@@ -74,9 +74,9 @@ namespace Spa_Vehiculos_api.Clases
                            Usuario = U.Usuario,
                            Autenticado = true,
                            Perfil = UP.Nombres + " " + UP.Apellidos,
-                           PaginaInicio = "Bienvenido Empleado del Spa_Vehiculos" + UP.Sede,
+                           PaginaInicio = "/Paginas/frmInicio.html",
                            Token = token,
-                           Mensaje = ""
+                           Mensaje = "Bienvenido Empleado del Spa_Vehiculos" + UP.Sede
                        };
             }
             else
