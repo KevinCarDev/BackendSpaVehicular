@@ -23,6 +23,14 @@ namespace Spa_Vehiculos_api.Controllers
             return Sede.Consultar(id_Sede);
         }
 
+        [HttpGet]
+        [Route("ConsultarTodas")]
+        public List<Sede> ConsultarTodos()
+        {
+            var Sede = new clsSede();
+            return Sede.ConsultarTodos();
+        }
+
         [HttpPost]
         [Route("Insertar")]
         public string Insertar([FromBody] Sede sed)

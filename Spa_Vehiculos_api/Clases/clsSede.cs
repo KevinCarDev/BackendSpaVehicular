@@ -11,6 +11,12 @@ namespace Spa_Vehiculos_api.Clases
     {
         private SpaVehicularEntities dbSpa = new SpaVehicularEntities();
         public Sede sede { get; set; }
+        public List<Sede> ConsultarTodos()
+        {
+            return dbSpa.Sedes
+                .OrderBy(p => p.Nombre)
+                .ToList();
+        }
         public string Insertar()
         {
             try

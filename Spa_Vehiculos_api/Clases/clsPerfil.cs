@@ -10,21 +10,25 @@ namespace Spa_Vehiculos_api.Clases
     {
         private SpaVehicularEntities dbSpa = new SpaVehicularEntities();
         public Perfil perfil { get; set; }
-        public string CrearUsuario(int idPerfil)
+
+        public string CrearUsuario()
         {
             try
             {
+                // Asegurarse de que el empleado existe
+                var empleado = dbSpa.Empleadoes.Find(perfil.ID_Empleado);
+                if (empleado == null)
+                {
+                    return "Error: El empleado no existe.";
+                }
+
                 dbSpa.Perfils.Add(perfil);
-                dbSpa.SaveChanges();
-                Empleado emplPerfil = new Empleado();
-                emplPerfil.ID_Empleado = perfil.ID_Empleado;
-                dbSpa.Empleadoes.Add(emplPerfil);
                 dbSpa.SaveChanges();
                 return "Se creó el usuario exitosamente";
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Error al crear usuario: " + ex.Message;
             }
         }
     }
