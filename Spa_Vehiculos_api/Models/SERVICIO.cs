@@ -9,9 +9,10 @@
 
 namespace Spa_Vehiculos_api.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Servicio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,8 +25,10 @@ namespace Spa_Vehiculos_api.Models
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int Categoria { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Categoria_Servicio Categoria_Servicio { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detalle_Factura_Servicio> Detalle_Factura_Servicio { get; set; }
     }

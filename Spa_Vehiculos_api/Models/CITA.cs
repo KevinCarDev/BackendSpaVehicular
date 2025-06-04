@@ -9,9 +9,10 @@
 
 namespace Spa_Vehiculos_api.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Cita
     {
         public int ID_Cita { get; set; }
@@ -21,8 +22,10 @@ namespace Spa_Vehiculos_api.Models
         public string Vehiculo { get; set; }
         public int Cliente { get; set; }
         public int Sede { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Vehiculo_Cliente Vehiculo_Cliente { get; set; }
+        [JsonIgnore]
         public virtual Sede Sede1 { get; set; }
     }
 }

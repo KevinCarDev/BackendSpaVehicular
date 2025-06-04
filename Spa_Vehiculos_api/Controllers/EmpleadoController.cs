@@ -12,7 +12,7 @@ namespace Spa_Vehiculos_api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Empleado")]
-    //[Authorize]
+    [Authorize]
     public class EmpleadoController : ApiController
     {
         [HttpGet]
