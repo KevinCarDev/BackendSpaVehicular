@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Spa_Vehiculos_api
 {
@@ -12,9 +13,11 @@ namespace Spa_Vehiculos_api
             // Configuración y servicios de Web API
 
             // Rutas de Web API
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             config.MapHttpAttributeRoutes();
 
-            config.EnableCors();
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
