@@ -8,8 +8,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>C:\Users\carde\OneDrive\Escritorio\Desarrollo de Sofware\Aplicaciones web\Spa_Vehiculos_api\Spa_Vehiculos_api\Properties\PublishProfiles\site26553-WebDeploy.pubxml</NameOfLastUsedPublishProfile>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <NameOfLastUsedPublishProfile>C:\Users\Usuario\Source\Repos\BackendSpaVehicular\Spa_Vehiculos_api\Properties\PublishProfiles\site26553-WebDeploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

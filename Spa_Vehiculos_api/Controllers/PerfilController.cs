@@ -6,20 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Spa_Vehiculos_api.Controllers
 {
-    [RoutePrefix("api/Usuarios")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Perfiles")]
     public class UsuariosController : ApiController
     {
         [HttpPost]
         [Route("CrearUsuarios")]
-        [Authorize]
-        public string CrearUsuarios([FromBody] Perfil perfil, int idPerfil)
+        //[Authorize]
+        public string CrearUsuarios([FromBody] Perfil perfil)
         {
             clsPerfil _Perfil = new clsPerfil();
             _Perfil.perfil = perfil;
-            return _Perfil.CrearUsuario(idPerfil);
+            return _Perfil.CrearUsuario();
         }
     }
 }

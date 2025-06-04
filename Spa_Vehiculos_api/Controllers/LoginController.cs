@@ -1,14 +1,14 @@
 ﻿using Spa_Vehiculos_api.Clases;
 using Spa_Vehiculos_api.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
+using System.Net;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Spa_Vehiculos_api.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Login")]
     [AllowAnonymous]
     public class LoginController : ApiController
@@ -21,5 +21,6 @@ namespace Spa_Vehiculos_api.Controllers
             _Login.login = login;
             return _Login.Ingresar();
         }
+
     }
 }

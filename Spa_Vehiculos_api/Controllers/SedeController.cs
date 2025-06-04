@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Spa_Vehiculos_api.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Sede")]
     //[Authorize]
     public class SedeController : ApiController
@@ -19,6 +21,14 @@ namespace Spa_Vehiculos_api.Controllers
         {
             clsSede Sede = new clsSede();
             return Sede.Consultar(id_Sede);
+        }
+
+        [HttpGet]
+        [Route("ConsultarTodas")]
+        public List<Sede> ConsultarTodos()
+        {
+            var Sede = new clsSede();
+            return Sede.ConsultarTodos();
         }
 
         [HttpPost]

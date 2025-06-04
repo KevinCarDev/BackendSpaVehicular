@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Spa_Vehiculos_api.Controllers
 {
-    [RoutePrefix("api/Empleado")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Empleados")]
     //[Authorize]
     public class EmpleadoController : ApiController
     {
