@@ -11,17 +11,17 @@ using System.Web.Http.Cors;
 namespace Spa_Vehiculos_api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/Usuarios")]
+    [RoutePrefix("api/Perfiles")]
     public class UsuariosController : ApiController
     {
         [HttpPost]
         [Route("CrearUsuarios")]
-        [Authorize]
-        public string CrearUsuarios([FromBody] Perfil perfil, int idPerfil)
+        //[Authorize]
+        public string CrearUsuarios([FromBody] Perfil perfil)
         {
             clsPerfil _Perfil = new clsPerfil();
             _Perfil.perfil = perfil;
-            return _Perfil.CrearUsuario(idPerfil);
+            return _Perfil.CrearUsuario();
         }
     }
 }
