@@ -12,7 +12,7 @@ namespace Spa_Vehiculos_api.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Ciudad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,10 +24,11 @@ namespace Spa_Vehiculos_api.Models
         public int ID_Ciudad { get; set; }
         public string Nombre { get; set; }
         public int Departamento { get; set; }
-    
-        public virtual Departamento Departamento1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
+        public virtual Departamento Departamento1 { get; set; }
+
+        [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sede> Sedes { get; set; }
     }
 }

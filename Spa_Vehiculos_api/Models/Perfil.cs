@@ -9,16 +9,18 @@
 
 namespace Spa_Vehiculos_api.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Perfil
     {
         public int ID_Empleado { get; set; }
         public int ID_Perfil { get; set; }
         public string Usuario { get; set; }
         public string Clave { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Empleado Empleado { get; set; }
     }
 }

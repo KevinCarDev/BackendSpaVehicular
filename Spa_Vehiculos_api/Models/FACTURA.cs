@@ -12,7 +12,6 @@ namespace Spa_Vehiculos_api.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    using Newtonsoft.Json;
 
     public partial class Factura
     {
@@ -33,18 +32,18 @@ namespace Spa_Vehiculos_api.Models
         public int Cliente { get; set; }
         public int Metodo_Pago { get; set; }
 
+
         [JsonIgnore]
         public virtual Cliente Cliente1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
         public virtual ICollection<Detalle_Factura_Producto> Detalle_Factura_Producto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
         public virtual ICollection<Detalle_Factura_Servicio> Detalle_Factura_Servicio { get; set; }
         [JsonIgnore]
-
         public virtual Metodo_Pago Metodo_Pago1 { get; set; }
         [JsonIgnore]
 

@@ -11,8 +11,12 @@ using System.Web.Http.Cors;
 namespace Spa_Vehiculos_api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+
+    
+
     [RoutePrefix("api/Empleados")]
     //[Authorize]
+
     public class EmpleadoController : ApiController
     {
         [HttpGet]
