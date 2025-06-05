@@ -24,7 +24,7 @@ namespace Spa_Vehiculos_api.Models
         public int ID_Ciudad { get; set; }
         public string Nombre { get; set; }
         public int Departamento { get; set; }
-        [JsonIgnore]
+        
         public virtual Departamento Departamento1 { get; set; }
 
         [JsonIgnore]
