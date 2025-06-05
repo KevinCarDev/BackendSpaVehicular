@@ -37,17 +37,11 @@ namespace Spa_Vehiculos_api.Models
         public virtual Cliente Cliente1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
-<<<<<<< HEAD
 
         public virtual ICollection<Detalle_Factura_Producto> Detalle_Factura_Producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
 
-=======
-        public virtual ICollection<Detalle_Factura_Producto> Detalle_Factura_Producto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
->>>>>>> b7136037c4769224461650dfb06dbb8601b06404
         public virtual ICollection<Detalle_Factura_Servicio> Detalle_Factura_Servicio { get; set; }
         [JsonIgnore]
 
